@@ -1,7 +1,7 @@
 import "./globals.css"
 import type { Metadata } from "next"
 import { Inter } from "next/font/google"
-import Head from "next/head"
+import { ReactLenis } from "@/lib/lenis"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -46,9 +46,11 @@ export default function RootLayout({
       <head>
         <link rel="icon" href="/favicon.ico" />
       </head>
-      <body className={`${inter.className} bg-black text-white antialiased`}>
-        {children}
-      </body>
+      <ReactLenis root>
+        <body className={`${inter.className} bg-black text-white antialiased`}>
+          {children}
+        </body>
+      </ReactLenis>
     </html>
   )
 }
