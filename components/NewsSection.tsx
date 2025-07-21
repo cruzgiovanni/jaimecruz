@@ -1,16 +1,16 @@
-"use client";
+"use client"
 
-import { motion } from "framer-motion";
-import NewsCard from "./NewsCard";
+import { motion } from "framer-motion"
+import NewsCard from "./NewsCard"
 
 interface NewsItem {
-  title: string;
-  subtitle: string;
-  url: string;
+  title: string
+  subtitle: string
+  url: string
 }
 
 interface NewsSectionProps {
-  news: NewsItem[];
+  news: NewsItem[]
 }
 
 export default function NewsSection({ news }: NewsSectionProps) {
@@ -28,10 +28,11 @@ export default function NewsSection({ news }: NewsSectionProps) {
             A Verdade na Imprensa
           </h2>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            Acompanhe todas as reportagens que documentaram esta vitória histórica da justiça.
+            Acompanhe todas as reportagens que documentaram esta vitória
+            histórica da justiça.
           </p>
         </motion.div>
-        
+
         <div className="grid gap-6 md:gap-8 lg:grid-cols-2 lg:gap-x-8 lg:gap-y-6">
           {news.map((article, index) => (
             <NewsCard
@@ -45,5 +46,5 @@ export default function NewsSection({ news }: NewsSectionProps) {
         </div>
       </div>
     </section>
-  );
+  )
 }

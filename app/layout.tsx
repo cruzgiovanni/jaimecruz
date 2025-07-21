@@ -49,8 +49,8 @@ export default function RootLayout({
       </head>
       <ReactLenis root>
         <body className={`${inter.className} bg-black text-white antialiased`}>
-          <Analytics />
           {children}
+          <Analytics />
         </body>
       </ReactLenis>
     </html>
