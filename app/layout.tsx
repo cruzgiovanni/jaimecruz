@@ -2,6 +2,7 @@ import "./globals.css"
 import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 import { ReactLenis } from "@/lib/lenis"
+import { Analytics } from "@vercel/analytics/next"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -48,6 +49,7 @@ export default function RootLayout({
       </head>
       <ReactLenis root>
         <body className={`${inter.className} bg-black text-white antialiased`}>
+          <Analytics />
           {children}
         </body>
       </ReactLenis>
