@@ -1,10 +1,17 @@
 import "./globals.css"
-import type { Metadata } from "next"
+import type { Metadata, Viewport } from "next"
 import { Inter } from "next/font/google"
 import { ReactLenis } from "@/lib/lenis"
 import { Analytics } from "@vercel/analytics/next"
 
 const inter = Inter({ subsets: ["latin"] })
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: "#000000",
+  colorScheme: "dark",
+}
 
 export const metadata: Metadata = {
   title: "Jaime Cruz - Vitória da Justiça | A Verdade Triunfa",
@@ -31,10 +38,6 @@ export const metadata: Metadata = {
     description:
       "A verdade triunfa: A justiça e a luz da vitória em Jaime Cruz",
   },
-
-  viewport: "width=device-width, initial-scale=1",
-  themeColor: "#000000",
-  colorScheme: "dark",
 }
 
 export default function RootLayout({
