@@ -14,23 +14,23 @@ export default function Footer() {
         transition={{ duration: 0.6 }}
         viewport={{ once: true }}
       >
-        <p className="text-gray-500 text-sm mb-4">
+        <p className="text-muted-foreground text-sm mb-4">
           © {currentYear} Jaime Cruz. A verdade sempre prevalece.
         </p>
 
-        <p className="text-gray-500 text-sm italic mb-3">
+        <p className="text-muted-foreground text-sm italic mb-3">
           "Ave Mariæ, gratia plena, Dominus tecum"
         </p>
 
-        <p className="text-gray-500 text-sm">
-          Desenvolvido com 🤍 por{' '}
+        <p className="text-muted-foreground text-sm">
+          Desenvolvido por {' '}
           <a
             href="https://giovannicruz.dev/"
             target="_blank"
             rel="noopener noreferrer"
-            className="underline text-gray-500 hover:text-[#bfa34a] transition-colors duration-300"
+            className="underline text-muted-foreground hover:text-gold transition-colors duration-300"
           >
-            Giovanni Cruz
+            giovannicruz.dev
           </a>
         </p>
       </motion.div>

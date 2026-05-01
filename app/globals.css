@@ -1,9 +1,105 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme inline {
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+  --color-chart-1: hsl(var(--chart-1));
+  --color-chart-2: hsl(var(--chart-2));
+  --color-chart-3: hsl(var(--chart-3));
+  --color-chart-4: hsl(var(--chart-4));
+  --color-chart-5: hsl(var(--chart-5));
+  --color-gold: hsl(var(--gold));
+  --color-gold-light: hsl(var(--gold-light));
+  --color-gold-dark: hsl(var(--gold-dark));
+  --color-gold-muted: hsl(var(--gold-muted));
+
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
+
+  --animate-accordion-down: accordion-down 0.2s ease-out;
+  --animate-accordion-up: accordion-up 0.2s ease-out;
+}
+
+@keyframes accordion-down {
+  from {
+    height: 0;
+  }
+
+  to {
+    height: var(--radix-accordion-content-height);
+  }
+}
+
+@keyframes accordion-up {
+  from {
+    height: var(--radix-accordion-content-height);
+  }
+
+  to {
+    height: 0;
+  }
+}
 
 @layer base {
   :root {
+    color-scheme: light;
+    --background: 45 25% 96%;
+    --foreground: 45 30% 10%;
+    --card: 45 20% 98%;
+    --card-foreground: 45 30% 10%;
+    --popover: 45 20% 98%;
+    --popover-foreground: 45 30% 10%;
+    --primary: 45 55% 35%;
+    --primary-foreground: 45 25% 96%;
+    --secondary: 45 15% 90%;
+    --secondary-foreground: 45 30% 10%;
+    --muted: 45 10% 90%;
+    --muted-foreground: 45 8% 40%;
+    --accent: 45 55% 35%;
+    --accent-foreground: 45 25% 96%;
+    --destructive: 0 60% 40%;
+    --destructive-foreground: 45 25% 96%;
+    --border: 45 15% 85%;
+    --input: 45 15% 85%;
+    --ring: 45 55% 35%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+    --radius: 0.5rem;
+
+    --gold: 45 55% 35%;
+    --gold-light: 45 55% 45%;
+    --gold-dark: 45 55% 25%;
+    --gold-muted: 45 55% 35% / 0.15;
+
+    --scrollbar-track: #e5e5e0;
+    --scrollbar-thumb: #c5c5bf;
+  }
+
+  .dark {
+    color-scheme: dark;
     --background: 0 0% 0%;
     --foreground: 0 0% 98%;
     --card: 0 0% 3.9%;
@@ -23,12 +119,47 @@
     --border: 0 0% 14.9%;
     --input: 0 0% 14.9%;
     --ring: 0 0% 83.1%;
-    --chart-1: 220 70% 50%;
-    --chart-2: 160 60% 45%;
-    --chart-3: 30 80% 55%;
-    --chart-4: 280 65% 60%;
-    --chart-5: 340 75% 55%;
-    --radius: 0.5rem;
+
+    --gold: 45 55% 43%;
+    --gold-light: 45 60% 65%;
+    --gold-dark: 45 55% 28%;
+    --gold-muted: 45 55% 43% / 0.2;
+
+    --scrollbar-track: #111111;
+    --scrollbar-thumb: #333333;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not(.light) {
+      color-scheme: dark;
+      --background: 0 0% 0%;
+      --foreground: 0 0% 98%;
+      --card: 0 0% 3.9%;
+      --card-foreground: 0 0% 98%;
+      --popover: 0 0% 3.9%;
+      --popover-foreground: 0 0% 98%;
+      --primary: 0 0% 98%;
+      --primary-foreground: 0 0% 9%;
+      --secondary: 0 0% 14.9%;
+      --secondary-foreground: 0 0% 98%;
+      --muted: 0 0% 14.9%;
+      --muted-foreground: 0 0% 63.9%;
+      --accent: 0 0% 14.9%;
+      --accent-foreground: 0 0% 98%;
+      --destructive: 0 62.8% 30.6%;
+      --destructive-foreground: 0 0% 98%;
+      --border: 0 0% 14.9%;
+      --input: 0 0% 14.9%;
+      --ring: 0 0% 83.1%;
+
+      --gold: 45 55% 43%;
+      --gold-light: 45 60% 65%;
+      --gold-dark: 45 55% 28%;
+      --gold-muted: 45 55% 43% / 0.2;
+
+      --scrollbar-track: #111111;
+      --scrollbar-thumb: #333333;
+    }
   }
 }
 
@@ -36,37 +167,70 @@
   * {
     @apply border-border;
   }
-  
+
   body {
     @apply bg-background text-foreground;
     font-feature-settings: "rlig" 1, "calt" 1;
   }
-  
+
   html {
     scroll-behavior: smooth;
   }
-  
-  /* Custom scrollbar */
+
   ::-webkit-scrollbar {
     width: 8px;
   }
-  
+
   ::-webkit-scrollbar-track {
-    background: #111111;
+    background: var(--scrollbar-track);
   }
-  
+
   ::-webkit-scrollbar-thumb {
-    background: #333333;
+    background: var(--scrollbar-thumb);
     border-radius: 4px;
   }
-  
+
   ::-webkit-scrollbar-thumb:hover {
-    background: #555555;
+    background: var(--scrollbar-thumb);
+    filter: brightness(1.2);
+  }
+
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
   }
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+
+  .text-gold {
+    color: hsl(var(--gold));
+  }
+
+  .bg-gold {
+    background-color: hsl(var(--gold));
+  }
+
+  .border-gold {
+    border-color: hsl(var(--gold));
+  }
+
+  .text-gold-light {
+    color: hsl(var(--gold-light));
+  }
+
+  .bg-gold-muted {
+    background-color: hsl(var(--gold-muted));
+  }
+
+  .hover\:text-gold:hover {
+    color: hsl(var(--gold));
+  }
+
+  .hover\:border-gold:hover {
+    border-color: hsl(var(--gold));
   }
 }

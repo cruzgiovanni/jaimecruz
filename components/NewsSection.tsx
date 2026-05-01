@@ -24,10 +24,10 @@ export default function NewsSection({ news }: NewsSectionProps) {
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
             A Verdade na Imprensa
           </h2>
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
             Acompanhe todas as reportagens que documentaram esta vitória
             histórica da justiça.
           </p>

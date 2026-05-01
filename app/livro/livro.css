@@ -1,0 +1,713 @@
+.livro-root {
+  --color-bg: hsl(var(--background));
+  --color-surface: hsl(var(--card));
+  --color-border: hsl(var(--border));
+
+  --color-text: hsl(var(--foreground) / 0.85);
+  --color-text-muted: hsl(var(--muted-foreground));
+  --color-heading: hsl(var(--foreground));
+
+  --livro-gold: hsl(var(--gold));
+  --livro-gold-light: hsl(var(--gold-light));
+  --livro-gold-dark: hsl(var(--gold-dark));
+  --livro-gold-soft: hsl(var(--gold) / 0.12);
+  --livro-gold-muted: hsl(var(--gold) / 0.2);
+  --livro-on-gold: hsl(45 34% 8%);
+
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-geist), "Inter", system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.dark .livro-root {
+  --livro-gold: hsl(43 72% 64%);
+  --livro-gold-light: hsl(43 86% 76%);
+  --livro-gold-dark: hsl(43 68% 58%);
+  --livro-gold-soft: hsl(43 72% 64% / 0.16);
+  --livro-gold-muted: hsl(43 72% 64% / 0.24);
+  --color-heading: var(--livro-gold-light);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not(.light) .livro-root {
+    --livro-gold: hsl(43 72% 64%);
+    --livro-gold-light: hsl(43 86% 76%);
+    --livro-gold-dark: hsl(43 68% 58%);
+    --livro-gold-soft: hsl(43 72% 64% / 0.16);
+    --livro-gold-muted: hsl(43 72% 64% / 0.24);
+    --color-heading: var(--livro-gold-light);
+  }
+}
+
+.livro-root *::selection {
+  background: var(--livro-gold-muted);
+  color: var(--livro-gold-light);
+}
+
+.livro-serif {
+  font-family: var(--font-playfair), Georgia, serif;
+}
+
+.livro-sans {
+  font-family: var(--font-geist), "Inter", system-ui, sans-serif;
+}
+
+.livro-root .gold-rule {
+  width: 60px;
+  height: 1px;
+  background: var(--livro-gold);
+  margin: 1.75rem auto;
+}
+
+.livro-root .label-eyebrow {
+  font-family: var(--font-geist), "Inter", system-ui, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: 0.7rem;
+  color: var(--livro-gold);
+}
+
+.livro-root .quote-block {
+  background: var(--color-surface);
+  border-left: 3px solid var(--livro-gold);
+  padding: 2rem 2rem 2rem 2.25rem;
+  font-family: var(--font-playfair), Georgia, serif;
+  font-style: italic;
+  color: var(--color-text);
+}
+
+.livro-root .chapter-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  padding: 2rem;
+  transition:
+    border-color 0.4s ease,
+    transform 0.4s ease;
+}
+
+.livro-root .chapter-card:hover {
+  border-color: var(--livro-gold-dark);
+  transform: translateY(-2px);
+}
+
+.livro-root .gold-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  min-height: 2.9rem;
+  padding: 0.85rem 1.85rem;
+  background: var(--livro-gold-soft);
+  color: var(--livro-gold);
+  border: 1.5px solid var(--livro-gold);
+  border-radius: 0;
+  box-shadow:
+    0 0 0 1px hsl(var(--gold) / 0.08) inset,
+    0 10px 28px hsl(var(--gold) / 0.08);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.78rem;
+  font-weight: 700;
+  font-family: var(--font-geist), "Inter", system-ui, sans-serif;
+  line-height: 1;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    background 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease,
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.livro-root .gold-button:hover {
+  background: var(--livro-gold);
+  border-color: var(--livro-gold);
+  box-shadow:
+    0 0 0 1px hsl(var(--gold-light) / 0.18) inset,
+    0 16px 34px hsl(var(--gold) / 0.18);
+  color: var(--livro-on-gold);
+  transform: translateY(-1px);
+}
+
+.livro-root .gold-button:focus-visible {
+  outline: 2px solid var(--livro-gold-light);
+  outline-offset: 3px;
+}
+
+.livro-root .gold-button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.livro-root .gold-button:disabled:hover {
+  background: var(--livro-gold-soft);
+  box-shadow:
+    0 0 0 1px hsl(var(--gold) / 0.08) inset,
+    0 10px 28px hsl(var(--gold) / 0.08);
+  color: var(--livro-gold);
+  transform: none;
+}
+
+.livro-root .gold-button-inverse {
+  background: var(--livro-gold);
+  color: var(--livro-on-gold);
+  border-color: var(--livro-gold-dark);
+  box-shadow:
+    0 0 0 1px hsl(var(--gold-light) / 0.18) inset,
+    0 16px 34px hsl(var(--gold) / 0.2);
+}
+
+.livro-root .gold-button-inverse:hover {
+  background: var(--livro-gold-light);
+  border-color: var(--livro-gold);
+  color: var(--livro-on-gold);
+}
+
+.livro-root .gold-button-inverse:disabled:hover {
+  background: var(--livro-gold);
+  color: var(--livro-on-gold);
+  border-color: var(--livro-gold-dark);
+}
+
+.livro-root .timeline {
+  position: relative;
+  padding-left: 1.75rem;
+}
+
+.livro-root .timeline::before {
+  content: "";
+  position: absolute;
+  left: 4px;
+  top: 6px;
+  bottom: 6px;
+  width: 1px;
+  background: var(--color-border);
+}
+
+.livro-root .timeline-item {
+  position: relative;
+  padding-bottom: 2.25rem;
+}
+
+.livro-root .timeline-item::before {
+  content: "";
+  position: absolute;
+  left: -1.75rem;
+  top: 6px;
+  width: 9px;
+  height: 9px;
+  border-radius: 9999px;
+  background: var(--livro-gold);
+  box-shadow: 0 0 0 3px var(--color-bg);
+}
+
+.livro-root .scroll-indicator {
+  width: 1px;
+  height: 56px;
+  background: linear-gradient(to bottom, var(--livro-gold), transparent);
+  animation: livroPulse 2.4s ease-in-out infinite;
+}
+
+@keyframes livroPulse {
+
+  0%,
+  100% {
+    opacity: 0.35;
+    transform: scaleY(0.8);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scaleY(1);
+  }
+}
+
+/* ───────── Reader ───────── */
+
+.livro-root .reader-shell {
+  --reader-toolbar-height: 4.25rem;
+  --reader-bottom-height: 5.5rem;
+  --reader-chrome-translate: 0;
+  --reader-chrome-opacity: 1;
+  --reader-progress-translate: 0;
+
+  min-height: 100dvh;
+  margin-top: -4rem;
+  background:
+    linear-gradient(180deg,
+      hsl(var(--background)) 0%,
+      hsl(var(--background)) 58%,
+      hsl(var(--card)) 100%);
+  color: var(--color-text);
+  overflow-x: hidden;
+}
+
+.livro-root .reader-shell.chrome-hidden {
+  --reader-chrome-opacity: 0;
+}
+
+.livro-root .reader-shell.chrome-hidden .reader-toolbar {
+  transform: translateY(-100%);
+  pointer-events: none;
+}
+
+.livro-root .reader-shell.chrome-hidden .reader-mobilenav {
+  transform: translateY(110%);
+  pointer-events: none;
+}
+
+.livro-root .reader-shell.chrome-hidden .reader-mobile-zoom {
+  transform: translateY(calc(var(--reader-bottom-height) + 2rem));
+  opacity: 0;
+  pointer-events: none;
+}
+
+.livro-root .reader-shell.chrome-hidden .reader-progress {
+  opacity: 0.4;
+}
+
+.livro-root .reader-toolbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 90;
+  min-height: var(--reader-toolbar-height);
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 0.85rem;
+  padding: max(0.75rem, env(safe-area-inset-top)) 1rem 0.75rem;
+  background: hsl(var(--background) / 0.96);
+  backdrop-filter: saturate(150%) blur(14px);
+  -webkit-backdrop-filter: saturate(150%) blur(14px);
+  border-bottom: 1px solid var(--color-border);
+  box-shadow: 0 10px 32px hsl(var(--background) / 0.52);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+
+.livro-root .reader-control,
+.livro-root .reader-iconbtn,
+.livro-root .reader-zoomlabel,
+.livro-root .reader-navbtn,
+.livro-root .reader-status-action {
+  min-width: 2.75rem;
+  height: 2.75rem;
+  border: 1px solid hsl(var(--border) / 0.95);
+  background: hsl(var(--card) / 0.72);
+  color: var(--color-text);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  line-height: 1;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.livro-root .reader-control:hover,
+.livro-root .reader-iconbtn:hover:not(:disabled),
+.livro-root .reader-zoomlabel:hover,
+.livro-root .reader-navbtn:hover:not(:disabled),
+.livro-root .reader-status-action:hover {
+  border-color: var(--livro-gold);
+  color: var(--livro-gold);
+  background: var(--livro-gold-soft);
+}
+
+.livro-root .reader-control:focus-visible,
+.livro-root .reader-iconbtn:focus-visible,
+.livro-root .reader-zoomlabel:focus-visible,
+.livro-root .reader-navbtn:focus-visible,
+.livro-root .reader-pagenum input:focus-visible,
+.livro-root .reader-status-action:focus-visible {
+  outline: 2px solid var(--livro-gold-light);
+  outline-offset: 3px;
+}
+
+.livro-root .reader-back {
+  padding: 0 0.8rem;
+  color: var(--livro-gold);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.livro-root .reader-position {
+  min-width: 0;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 0.2rem;
+}
+
+.livro-root .reader-title {
+  max-width: 100%;
+  overflow: hidden;
+  color: var(--color-heading);
+  font-family: var(--font-playfair), Georgia, serif;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.1;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.livro-root .reader-pagecount {
+  color: var(--color-text-muted);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.livro-root .reader-desktop-controls {
+  display: none;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.6rem;
+}
+
+.livro-root .reader-pager,
+.livro-root .reader-zoom {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--color-text);
+}
+
+.livro-root .reader-iconbtn {
+  width: 2.75rem;
+  padding: 0;
+}
+
+.livro-root .reader-iconbtn:disabled,
+.livro-root .reader-navbtn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.livro-root .reader-pagenum {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+}
+
+.livro-root .reader-pagenum input {
+  width: 3.25rem;
+  height: 2.75rem;
+  padding: 0.35rem 0.45rem;
+  border: 1px solid var(--color-border);
+  background: var(--color-bg);
+  color: var(--livro-gold);
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+}
+
+.livro-root .reader-of {
+  letter-spacing: 0.04em;
+}
+
+.livro-root .reader-zoomlabel {
+  min-width: 3.25rem;
+  padding: 0 0.65rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.livro-root .reader-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 91;
+  height: 2px;
+  background: hsl(var(--border) / 0.4);
+  transition: opacity 0.35s ease;
+}
+
+.livro-root .reader-progress span {
+  display: block;
+  height: 100%;
+  background: var(--livro-gold);
+  transition: width 0.25s ease;
+}
+
+.livro-root .reader-stage {
+  display: flex;
+  min-height: 100dvh;
+  align-items: flex-start;
+  justify-content: center;
+  padding:
+    calc(var(--reader-toolbar-height) + 1rem) max(0.65rem, env(safe-area-inset-left)) calc(var(--reader-bottom-height) + 5.25rem + env(safe-area-inset-bottom));
+  touch-action: pan-y pinch-zoom;
+  cursor: pointer;
+  transition: padding 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.livro-root .reader-shell.chrome-hidden .reader-stage {
+  padding-top: max(0.85rem, env(safe-area-inset-top));
+  padding-bottom: max(1.25rem, env(safe-area-inset-bottom));
+}
+
+.livro-root .reader-page-wrap {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.livro-root .reader-stage .react-pdf__Document {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.livro-root .reader-stage .react-pdf__Page {
+  background: #ffffff;
+  box-shadow:
+    0 1px 0 hsl(var(--foreground) / 0.05),
+    0 18px 50px hsl(var(--background) / 0.38);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.livro-root .reader-stage .react-pdf__Page__textContent {
+  /* Selectable, but only on long-press (mobile) or click-drag (desktop).
+     Quick taps still bubble to the stage tap-zone handler. */
+  user-select: text;
+  -webkit-user-select: text;
+  cursor: text;
+}
+
+.livro-root .reader-stage .react-pdf__Page__textContent ::selection {
+  background: hsl(var(--gold) / 0.4);
+  color: hsl(45 30% 10%);
+}
+
+.livro-root .reader-stage .react-pdf__Page__annotations {
+  /* Annotation links inside the PDF stay clickable */
+  pointer-events: auto;
+}
+
+.livro-root .reader-status {
+  min-height: 18rem;
+  width: min(100%, 28rem);
+  border: 1px solid var(--color-border);
+  background: hsl(var(--card) / 0.72);
+  color: var(--color-text-muted);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 2rem;
+  text-align: center;
+}
+
+.livro-root .reader-status-title {
+  color: var(--color-heading);
+  font-family: var(--font-playfair), Georgia, serif;
+  font-size: 1.25rem;
+}
+
+.livro-root .reader-status-text {
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.livro-root .reader-status-action {
+  margin-top: 0.5rem;
+  padding: 0 1rem;
+  color: var(--livro-gold);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.livro-root .reader-status-page {
+  min-height: 12rem;
+}
+
+.livro-root .reader-mobilenav {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 95;
+  min-height: var(--reader-bottom-height);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.85rem 1rem calc(0.85rem + env(safe-area-inset-bottom));
+  background: hsl(var(--background) / 0.97);
+  border-top: 1px solid var(--color-border);
+  box-shadow: 0 -12px 32px hsl(var(--background) / 0.56);
+  backdrop-filter: saturate(150%) blur(14px);
+  -webkit-backdrop-filter: saturate(150%) blur(14px);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+
+.livro-root .reader-navbtn {
+  width: 100%;
+  min-height: 3.25rem;
+  padding: 0 0.95rem;
+  color: var(--color-text);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.livro-root .reader-navbtn-primary {
+  border-color: var(--livro-gold);
+  background: var(--livro-gold);
+  color: var(--livro-on-gold);
+}
+
+.livro-root .reader-navbtn-primary:hover:not(:disabled) {
+  background: var(--livro-gold-light);
+  color: var(--livro-on-gold);
+}
+
+.livro-root .reader-mobile-page {
+  min-width: 4rem;
+  color: var(--livro-gold);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+}
+
+.livro-root .reader-mobile-zoom {
+  position: fixed;
+  right: 0.85rem;
+  bottom: calc(var(--reader-bottom-height) + 0.85rem + env(safe-area-inset-bottom));
+  z-index: 94;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.35rem;
+  background: hsl(var(--background) / 0.94);
+  border: 1px solid var(--color-border);
+  box-shadow: 0 10px 28px hsl(var(--background) / 0.4);
+  backdrop-filter: saturate(150%) blur(14px);
+  -webkit-backdrop-filter: saturate(150%) blur(14px);
+  transition:
+    transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 0.35s ease;
+  will-change: transform;
+}
+
+.livro-root .reader-mobile-zoom .reader-iconbtn {
+  width: 2.4rem;
+  min-width: 2.4rem;
+  height: 2.4rem;
+}
+
+.livro-root .reader-mobile-zoom .reader-zoomlabel {
+  min-width: 4rem;
+  height: 2.4rem;
+}
+
+@media (max-width: 640px) {
+  .livro-root .reader-toolbar {
+    --reader-toolbar-height: 4.75rem;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    gap: 0.55rem;
+    padding-left: 0.7rem;
+    padding-right: 0.7rem;
+  }
+
+  .livro-root .reader-title {
+    font-size: 0.9rem;
+  }
+
+  .livro-root .reader-pagecount {
+    font-size: 0.66rem;
+  }
+
+  .livro-root .reader-control {
+    min-width: 2.65rem;
+    height: 2.65rem;
+    padding: 0 0.65rem;
+  }
+
+  .livro-root .reader-control span {
+    display: none;
+  }
+
+  .livro-root .reader-stage {
+    padding-top: calc(var(--reader-toolbar-height) + 0.85rem);
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .livro-root .reader-stage .react-pdf__Page {
+    border-radius: 0;
+    box-shadow: 0 8px 26px hsl(var(--background) / 0.28);
+  }
+}
+
+@media (min-width: 820px) {
+  .livro-root .reader-shell {
+    --reader-toolbar-height: 4.5rem;
+    --reader-bottom-height: 5rem;
+  }
+
+  .livro-root .reader-toolbar {
+    grid-template-columns: auto minmax(12rem, 1fr) auto auto;
+  }
+
+  .livro-root .reader-position {
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .livro-root .reader-desktop-controls {
+    display: inline-flex;
+  }
+
+  .livro-root .reader-mobile-zoom {
+    display: none;
+  }
+
+  .livro-root .reader-stage {
+    padding-top: calc(var(--reader-toolbar-height) + 1.5rem);
+    padding-bottom: calc(var(--reader-bottom-height) + 2rem);
+  }
+}
+
+@media (max-width: 380px) {
+  .livro-root .reader-navbtn {
+    font-size: 0.7rem;
+    padding: 0 0.65rem;
+  }
+
+  .livro-root .reader-mobile-page {
+    min-width: 3.35rem;
+    font-size: 0.72rem;
+  }
+}

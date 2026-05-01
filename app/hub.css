@@ -1,0 +1,134 @@
+.hub-root {
+  --hub-bg: hsl(var(--background));
+  --hub-surface: hsl(var(--card));
+  --hub-border: hsl(var(--border));
+  --hub-text: hsl(var(--foreground));
+  --hub-text-muted: hsl(var(--muted-foreground));
+  --hub-heading: hsl(var(--foreground));
+  --hub-gold: hsl(var(--gold));
+  --hub-gold-light: hsl(var(--gold-light));
+  --hub-gold-dark: hsl(var(--gold-dark));
+  --hub-gold-muted: hsl(var(--gold-muted));
+
+  background-color: var(--hub-bg);
+  color: var(--hub-text);
+  min-height: 100vh;
+  font-family: var(--font-geist), "Inter", system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.hub-root *::selection {
+  background: var(--hub-gold-muted);
+  color: var(--hub-gold-light);
+}
+
+.hub-serif {
+  font-family: var(--font-playfair), Georgia, serif;
+}
+
+.hub-eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  font-size: 0.7rem;
+  color: var(--hub-gold);
+}
+
+.hub-rule {
+  width: 60px;
+  height: 1px;
+  background: var(--hub-gold);
+  margin: 2.25rem auto;
+}
+
+.hub-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  text-decoration: none;
+  background: var(--hub-surface);
+  border: 1px solid var(--hub-border);
+  border-radius: 6px;
+  padding: 1.75rem;
+  transition:
+    border-color 0.35s ease,
+    transform 0.35s ease,
+    background 0.35s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.hub-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(600px circle at var(--mx, 50%) var(--my, 0%),
+      rgba(191, 163, 74, 0.08),
+      transparent 40%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.hub-card:hover {
+  border-color: var(--hub-gold-dark);
+  transform: translateY(-2px);
+}
+
+.hub-card:hover::after {
+  opacity: 1;
+}
+
+.hub-card-eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: 0.66rem;
+  color: var(--hub-gold);
+}
+
+.hub-card-title {
+  font-family: var(--font-playfair), Georgia, serif;
+  color: var(--hub-heading);
+  font-size: 1.65rem;
+  line-height: 1.2;
+  margin-top: 0.6rem;
+  font-weight: 500;
+}
+
+.hub-card-subtitle {
+  color: var(--hub-text);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin-top: 0.65rem;
+  max-width: 28rem;
+}
+
+.hub-card-arrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-top: 1.4rem;
+  color: var(--hub-gold);
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: gap 0.3s ease;
+}
+
+.hub-card:hover .hub-card-arrow {
+  gap: 0.7rem;
+}
+
+.hub-fade {
+  opacity: 0;
+  transform: translateY(14px);
+  animation: hubFade 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes hubFade {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
