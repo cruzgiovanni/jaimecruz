@@ -53,7 +53,7 @@ export default function SocialDock({ socialLinks }: SocialDockProps) {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.5 }}
-        className="flex items-center gap-4 bg-gray-900 rounded-2xl px-6 py-4 border border-gray-800 shadow-2xl"
+        className="flex items-center gap-4 bg-card rounded-2xl px-6 py-4 border border-border shadow-2xl"
       >
         {socialLinks.map((link, index) => {
           const IconComponent = iconMap[link.icon as keyof typeof iconMap];
@@ -64,7 +64,7 @@ export default function SocialDock({ socialLinks }: SocialDockProps) {
               href={link.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center w-12 h-12 rounded-xl bg-gray-800 border border-gray-700 text-gray-300 hover:text-[#bfa34a] hover:border-[#bfa34a]/50 hover:bg-gray-700 transition-all duration-300"
+              className="flex items-center justify-center w-12 h-12 rounded-xl bg-secondary border border-border text-foreground hover:text-gold hover:border-gold/50 hover:bg-secondary transition-all duration-300"
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{

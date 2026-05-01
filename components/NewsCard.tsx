@@ -33,32 +33,32 @@ export default function NewsCard({ title, subtitle, url, index }: NewsCardProps)
       className="group cursor-pointer"
       onClick={handleClick}
     >
-      <div className="relative overflow-hidden rounded-2xl bg-gray-900 border border-gray-800 p-6 transition-all duration-300 hover:border-[#bfa34a]/40 hover:shadow-2xl hover:shadow-[#bfa34a]/10">
+      <div className="relative overflow-hidden rounded-2xl bg-card border border-border p-6 transition-all duration-300 hover:border-gold/40 hover:shadow-2xl hover:shadow-gold/10">
         {/* Golden glow effect */}
-        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#bfa34a]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-gold/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
         
         {/* Content */}
         <div className="relative z-10">
           <div className="flex items-center justify-between">
-            <p className="text-gray-300 text-lg font-bold mb-3 group-hover:text-[#bfa34a] transition-colors duration-300">
+            <p className="text-muted-foreground text-lg font-bold mb-3 group-hover:text-gold transition-colors duration-300">
               {subtitle}
             </p>
             
             <motion.div
-              className="text-gray-500 group-hover:text-[#bfa34a] transition-colors duration-300"
+              className="text-muted-foreground group-hover:text-gold transition-colors duration-300"
               whileHover={{ scale: 1.1 }}
             >
               <ExternalLink size={16} />
             </motion.div>
           </div>
           
-          <h3 className="text-gray-100 font-medium text-base leading-tight group-hover:text-white transition-colors duration-300">
+          <h3 className="text-card-foreground font-medium text-base leading-tight group-hover:text-card-foreground transition-colors duration-300">
             {title}
           </h3>
         </div>
         
         {/* Golden inner glow */}
-        <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-r from-[#bfa34a]/3 via-transparent to-[#bfa34a]/3" />
+        <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-r from-gold/3 via-transparent to-gold/3" />
       </div>
     </motion.div>
   );

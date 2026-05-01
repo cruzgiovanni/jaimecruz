@@ -1,0 +1,69 @@
+.notfound-root {
+  --color-bg: hsl(var(--background));
+  --color-text: hsl(var(--foreground) / 0.85);
+  --color-heading: hsl(var(--foreground));
+  --notfound-gold: hsl(var(--gold));
+  --notfound-gold-dark: hsl(var(--gold-dark));
+
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-geist), "Inter", system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  padding: 1.5rem;
+}
+
+.notfound-content {
+  text-align: center;
+  max-width: 420px;
+}
+
+.notfound-code {
+  display: block;
+  font-family: var(--font-playfair), Georgia, serif;
+  font-size: clamp(4rem, 12vw, 8rem);
+  font-weight: 500;
+  color: var(--notfound-gold-dark);
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.notfound-title {
+  font-family: var(--font-playfair), Georgia, serif;
+  font-size: 1.75rem;
+  font-weight: 500;
+  color: var(--color-heading);
+  margin-bottom: 1rem;
+}
+
+.notfound-text {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--color-text);
+  margin-bottom: 2.5rem;
+}
+
+.notfound-link {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.75rem 1.75rem;
+  font-size: 0.82rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--notfound-gold);
+  text-decoration: none;
+  border: 1px solid var(--notfound-gold);
+  border-radius: 0;
+  transition:
+    background 0.3s ease,
+    color 0.3s ease;
+}
+
+.notfound-link:hover {
+  background: var(--notfound-gold);
+  color: var(--color-bg);
+}

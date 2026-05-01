@@ -3,40 +3,48 @@ import type { Metadata, Viewport } from "next"
 import { Inter } from "next/font/google"
 import { ReactLenis } from "@/lib/lenis"
 import { Analytics } from "@vercel/analytics/next"
+import { Navbar } from "@/components/Navbar"
+import { ThemeProvider } from "@/components/ThemeProvider"
 
 const inter = Inter({ subsets: ["latin"] })
 
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#000000",
-  colorScheme: "dark",
+  viewportFit: "cover",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#f8f6ef" },
+    { media: "(prefers-color-scheme: dark)", color: "#000000" },
+  ],
 }
 
 export const metadata: Metadata = {
-  title: "Jaime Cruz - Vitória da Justiça | A Verdade Triunfa",
-  description:
-    "A verdade triunfa: A justiça e a luz da vitória em Jaime Cruz. Acompanhe as principais reportagens sobre a vitória judicial no caso do cartel da merenda escolar.",
-  keywords:
-    "Jaime Cruz, vitória judicial, cartel merenda escolar, justiça, Vinhedo, ex-prefeito",
+  title: {
+    default: "Jaime Cruz",
+    template: "%s | Jaime Cruz",
+  },
+  description: "Jaime Cesar da Cruz — Vinhedo, SP.",
   authors: [{ name: "Jaime Cruz" }],
   robots: "index, follow",
   openGraph: {
-    images: [
-      "https://opengraph.b-cdn.net/production/images/933998ff-5ff7-4fd1-8589-c8a94956fcbf.jpg?token=M9VAgcewcg71EAIm_5aKB8xbnzY0Q_AC_0QGOgr6yuE&height=630&width=1200&expires=33288695844",
-    ],
-    title: "Jaime Cruz - Vitória da Justiça",
-    description:
-      "A verdade triunfa: A justiça e a luz da vitória em Jaime Cruz",
+    title: "Jaime Cruz",
+    description: "Jaime Cesar da Cruz — Vinhedo, SP.",
     type: "website",
     locale: "pt_BR",
     url: "https://jaimecruz.vercel.app/",
+    images: [
+      {
+        url: "/jc-og.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Jaime Cruz",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Jaime Cruz - Vitória da Justiça",
-    description:
-      "A verdade triunfa: A justiça e a luz da vitória em Jaime Cruz",
+    title: "Jaime Cruz",
+    description: "Jaime Cesar da Cruz — Vinhedo, SP.",
   },
 }
 
@@ -46,16 +54,19 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="pt-BR" className="dark">
+    <html lang="pt-BR" data-scroll-behavior="smooth" suppressHydrationWarning>
       <head>
         <link rel="icon" href="/favicon.ico" />
       </head>
-      <ReactLenis root>
-        <body className={`${inter.className} bg-black text-white antialiased`}>
-          {children}
-          <Analytics />
-        </body>
-      </ReactLenis>
+      <body className={`${inter.className} antialiased pt-16`}>
+        <ThemeProvider>
+          <ReactLenis root>
+            <Navbar />
+            {children}
+            <Analytics />
+          </ReactLenis>
+        </ThemeProvider>
+      </body>
     </html>
   )
 }

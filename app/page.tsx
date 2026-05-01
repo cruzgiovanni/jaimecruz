@@ -1,39 +1,149 @@
-"use client";
+import type { Metadata } from "next";
+import Link from "next/link";
+import { Playfair_Display, Geist } from "next/font/google";
+import "./hub.css";
 
-import { motion } from "framer-motion";
-import { useState, useEffect } from "react";
-import { siteText } from "@/data/siteData";
-import Header from "@/components/Header";
-import NewsSection from "@/components/NewsSection";
-import SocialDock from "@/components/SocialDock";
-import Footer from "@/components/Footer";
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  variable: "--font-playfair",
+  display: "swap",
+});
 
-export default function Home() {
-  const [particlePositions, setParticlePositions] = useState<Array<{x: number, y: number}>>([]);
+const geist = Geist({
+  subsets: ["latin"],
+  variable: "--font-geist",
+  display: "swap",
+});
 
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      const positions = [...Array(5)].map(() => ({
-        x: Math.random() * window.innerWidth,
-        y: Math.random() * window.innerHeight
-      }));
-      setParticlePositions(positions);
-    }
-  }, []);
+export const metadata: Metadata = {
+  title: "Jaime Cruz — Jaime Cesar da Cruz",
+  description:
+    "Conheça o livro Entre Frestas e Horizontes e a vitória judicial de Jaime Cruz.",
+  openGraph: {
+    title: "Jaime Cruz",
+    description:
+      "Conheça o livro Entre Frestas e Horizontes e a vitória judicial de Jaime Cruz.",
+    type: "website",
+    locale: "pt_BR",
+    url: "https://jaimecruz.vercel.app/",
+  },
+};
 
+const cards = [
+  {
+    href: "/livro",
+    eyebrow: "O Livro · 2026",
+    title: "Entre Frestas e Horizontes",
+    subtitle: "Uma travessia de vida, fé e serviço público.",
+    cta: "Conhecer a obra",
+    delay: 80,
+  },
+  {
+    href: "/absolvicao",
+    eyebrow: "Justiça · 2026",
+    title: "A Verdade Triunfa",
+    subtitle:
+      "A vitória judicial no caso do cartel da merenda escolar — reportagens e documentos.",
+    cta: "Ver as notícias",
+    delay: 180,
+  },
+];
+
+export default function HubPage() {
   return (
-    <main className="min-h-screen bg-black overflow-x-hidden">
-      
-      <Header 
-        headline={siteText.headline} 
-        subheadline={siteText.subheadline}
-      />
-      
-      <NewsSection news={siteText.news} />
-      
-      <SocialDock socialLinks={siteText.socialLinks} />
-      
-      <Footer />
-    </main>
+    <div className={`${playfair.variable} ${geist.variable} hub-root`}>
+      <main className="mx-auto flex min-h-screen w-full max-w-[640px] flex-col items-center px-6 pt-24 pb-16 text-center sm:pt-32">
+        <span className="hub-eyebrow hub-fade" style={{ animationDelay: "0ms" }}>
+          Jaime Cruz · Vinhedo, SP
+        </span>
+
+        <h1
+          className="hub-serif hub-fade"
+          style={{
+            color: "var(--hub-heading)",
+            fontSize: "clamp(2.5rem, 7vw, 4rem)",
+            lineHeight: 1.05,
+            fontWeight: 500,
+            marginTop: "1.5rem",
+            animationDelay: "100ms",
+          }}
+        >
+          Jaime Cesar
+          <br />
+          da Cruz
+        </h1>
+
+        <p
+          className="hub-fade"
+          style={{
+            color: "var(--hub-text-muted)",
+            fontSize: "0.95rem",
+            marginTop: "1.25rem",
+            maxWidth: "28rem",
+            lineHeight: 1.6,
+            animationDelay: "200ms",
+          }}
+        >
+          Três décadas de serviço público.
+          <br />
+          Uma travessia que escolheu gostar de gente.
+        </p>
+
+        <div
+          className="hub-fade"
+          style={{ animationDelay: "260ms" }}
+        >
+          <div className="hub-rule" />
+        </div>
+
+        <nav
+          aria-label="Páginas principais"
+          className="flex w-full flex-col gap-4"
+        >
+          {cards.map((card) => (
+            <Link
+              key={card.href}
+              href={card.href}
+              className="hub-card hub-fade"
+              style={{ animationDelay: `${card.delay + 260}ms` }}
+            >
+              <span className="hub-card-eyebrow">{card.eyebrow}</span>
+              <span className="hub-card-title">{card.title}</span>
+              <span className="hub-card-subtitle">{card.subtitle}</span>
+              <span className="hub-card-arrow">
+                {card.cta} <span aria-hidden>→</span>
+              </span>
+            </Link>
+          ))}
+        </nav>
+
+        <footer
+          className="hub-fade mt-20 text-center"
+          style={{
+            color: "var(--hub-text-muted)",
+            fontSize: "0.72rem",
+            lineHeight: 1.7,
+            animationDelay: "560ms",
+          }}
+        >
+          <p>© {new Date().getFullYear()} — Jaime Cesar da Cruz</p>
+          <p style={{ marginTop: "0.4rem" }}>
+            Site desenvolvido por{" "}
+            <a
+              href="https://giovannicruz.dev/"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                color: "var(--hub-gold)",
+                textDecoration: "underline",
+                textUnderlineOffset: "3px",
+              }}
+            >
+              giovannicruz.dev
+            </a>
+          </p>
+        </footer>
+      </main>
+    </div>
   );
 }
