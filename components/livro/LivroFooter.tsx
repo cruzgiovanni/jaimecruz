@@ -56,7 +56,7 @@ export default function LivroFooter() {
             fontSize: "0.75rem",
           }}
         >
-          Site desenvolvido por{" "}
+          Desenvolvido por{" "}
           <a
             href="https://giovannicruz.dev/"
             target="_blank"

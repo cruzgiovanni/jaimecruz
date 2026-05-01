@@ -1,5 +1,3 @@
-"use client";
-
 interface RevealProps {
   children: React.ReactNode;
   delay?: number;

@@ -213,10 +213,13 @@
 }
 
 @keyframes livroPulse {
-  0%, 100% {
+
+  0%,
+  100% {
     opacity: 0.35;
     transform: scaleY(0.8);
   }
+
   50% {
     opacity: 1;
     transform: scaleY(1);
@@ -235,12 +238,10 @@
   min-height: 100dvh;
   margin-top: -4rem;
   background:
-    linear-gradient(
-      180deg,
+    linear-gradient(180deg,
       hsl(var(--background)) 0%,
       hsl(var(--background)) 58%,
-      hsl(var(--card)) 100%
-    );
+      hsl(var(--card)) 100%);
   color: var(--color-text);
   overflow-x: hidden;
 }
@@ -433,22 +434,6 @@
   font-variant-numeric: tabular-nums;
 }
 
-.livro-root .reader-download {
-  justify-self: end;
-  padding: 0 0.8rem;
-  border-color: var(--livro-gold);
-  color: var(--livro-gold);
-  font-size: 0.76rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.livro-root .reader-download:hover {
-  background: var(--livro-gold);
-  color: var(--livro-on-gold);
-}
-
 .livro-root .reader-progress {
   position: fixed;
   top: 0;
@@ -473,9 +458,7 @@
   align-items: flex-start;
   justify-content: center;
   padding:
-    calc(var(--reader-toolbar-height) + 1rem)
-    max(0.65rem, env(safe-area-inset-left))
-    calc(var(--reader-bottom-height) + 5.25rem + env(safe-area-inset-bottom));
+    calc(var(--reader-toolbar-height) + 1rem) max(0.65rem, env(safe-area-inset-left)) calc(var(--reader-bottom-height) + 5.25rem + env(safe-area-inset-bottom));
   touch-action: pan-y pinch-zoom;
   cursor: pointer;
   transition: padding 0.35s cubic-bezier(0.16, 1, 0.3, 1);

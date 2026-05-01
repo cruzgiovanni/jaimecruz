@@ -26,6 +26,6 @@ export const SITE = {
     datePublished: "2026",
     publisher: "Edição privada",
     pdfUrl:
-      "https://mibfpndkbyqzc4ik.public.blob.vercel-storage.com/Entre_Frestas_e_Horizontes_%40_Jaime_Cruz.pdf",
+      "https://mibfpndkbyqzc4ik.public.blob.vercel-storage.com/Entre_Frestas_e_Horizontes__Jaime_Cruz_compressed.pdf",
   },
 } as const;

@@ -23,7 +23,7 @@ export default function Footer() {
         </p>
 
         <p className="text-muted-foreground text-sm">
-          Desenvolvido com {' '}
+          Desenvolvido por {' '}
           <a
             href="https://giovannicruz.dev/"
             target="_blank"

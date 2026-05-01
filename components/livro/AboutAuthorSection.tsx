@@ -1,7 +1,3 @@
-"use client";
-
-import Reveal from "./Reveal";
-
 const timeline = [
   {
     period: "1992",
@@ -21,7 +17,7 @@ const timeline = [
   {
     period: "2005 – 2006",
     title: "Presidente da Câmara Municipal de Vinhedo",
-    body: "Modernização administrativa e programa “Câmara nos Bairros”.",
+    body: "Modernização administrativa e programa Câmara nos Bairros.",
   },
   {
     period: "2008 – 2016",
@@ -54,121 +50,109 @@ export default function AboutAuthorSection() {
       style={{ backgroundColor: "var(--color-bg)" }}
     >
       <div className="mx-auto w-full max-w-[760px]">
-        <Reveal>
-          <span className="label-eyebrow">O autor</span>
-        </Reveal>
+        <span className="label-eyebrow">O autor</span>
 
-        <Reveal delay={120}>
-          <h2
-            className="livro-serif mt-6"
-            style={{
-              color: "var(--color-heading)",
-              fontSize: "clamp(2.25rem, 4.5vw, 3rem)",
-              lineHeight: 1.1,
-              fontWeight: 500,
-            }}
-          >
-            Jaime Cruz
-          </h2>
-        </Reveal>
+        <h2
+          className="livro-serif mt-6"
+          style={{
+            color: "var(--color-heading)",
+            fontSize: "clamp(2.25rem, 4.5vw, 3rem)",
+            lineHeight: 1.1,
+            fontWeight: 500,
+          }}
+        >
+          Jaime Cruz
+        </h2>
 
-        <Reveal delay={200}>
-          <p
-            className="livro-sans mt-2"
-            style={{
-              color: "var(--color-text-muted)",
-              fontSize: "0.85rem",
-              letterSpacing: "0.05em",
-            }}
-          >
-            Jaime Cesar da Cruz — Vinhedo, SP
+        <p
+          className="livro-sans mt-2"
+          style={{
+            color: "var(--color-text-muted)",
+            fontSize: "0.85rem",
+            letterSpacing: "0.05em",
+          }}
+        >
+          Jaime Cesar da Cruz — Vinhedo, SP
+        </p>
+
+        <div
+          className="livro-sans mt-10 space-y-5"
+          style={{
+            color: "var(--color-text)",
+            fontSize: "1rem",
+            lineHeight: 1.85,
+          }}
+        >
+          <p>
+            Nasceu em 26 de junho de 1968, em Rosário do Ivaí, no interior
+            do Paraná. Sétimo de dez filhos. Chegou a Vinhedo aos 11 anos,
+            em um barraco de 15 metros quadrados no Jardim Três Irmãos, sem
+            água encanada e sem energia elétrica.
           </p>
-        </Reveal>
+          <p>
+            Formou-se em Filosofia pela PUC-Campinas (1996) e construiu uma
+            trajetória pública de três décadas, guiada pela coerência entre
+            origem e responsabilidade.
+          </p>
+        </div>
 
-        <Reveal delay={300}>
-          <div
-            className="livro-sans mt-10 space-y-5"
-            style={{
-              color: "var(--color-text)",
-              fontSize: "1rem",
-              lineHeight: 1.85,
-            }}
-          >
-            <p>
-              Nasceu em 26 de junho de 1968, em Rosário do Ivaí, no interior
-              do Paraná. Sétimo de dez filhos. Chegou a Vinhedo aos 11 anos,
-              em um barraco de 15 metros quadrados no Jardim Três Irmãos, sem
-              água encanada e sem energia elétrica.
-            </p>
-            <p>
-              Formou-se em Filosofia pela PUC-Campinas (1996) e construiu uma
-              trajetória pública de três décadas, guiada pela coerência entre
-              origem e responsabilidade.
-            </p>
-          </div>
-        </Reveal>
-
-        <Reveal delay={400}>
-          <div className="mt-16">
-            <span className="label-eyebrow">Trajetória</span>
-            <ol className="timeline mt-8">
-              {timeline.map((item) => (
-                <li key={item.period} className="timeline-item">
-                  <div
-                    className="label-eyebrow"
-                    style={{
-                      fontSize: "0.7rem",
-                      letterSpacing: "0.18em",
-                    }}
-                  >
-                    {item.period}
-                  </div>
-                  <div
-                    className="livro-sans mt-2"
-                    style={{
-                      color: "var(--color-heading)",
-                      fontSize: "1rem",
-                      fontWeight: 500,
-                    }}
-                  >
-                    {item.title}
-                  </div>
-                  <p
-                    className="livro-sans mt-1"
-                    style={{
-                      color: "var(--color-text)",
-                      fontSize: "0.9rem",
-                      lineHeight: 1.7,
-                    }}
-                  >
-                    {item.body}
-                  </p>
-                </li>
-              ))}
-            </ol>
-          </div>
-        </Reveal>
-
-        <Reveal delay={500}>
-          <div className="mt-16">
-            <span className="label-eyebrow">Formação</span>
-            <ul className="mt-6 space-y-3">
-              {formacao.map((f) => (
-                <li
-                  key={f}
-                  className="livro-sans"
+        <div className="mt-16">
+          <span className="label-eyebrow">Trajetória</span>
+          <ol className="timeline mt-8">
+            {timeline.map((item) => (
+              <li key={item.period} className="timeline-item">
+                <div
+                  className="label-eyebrow"
                   style={{
-                    color: "var(--color-text)",
-                    fontSize: "0.92rem",
-                    lineHeight: 1.6,
+                    fontSize: "0.7rem",
+                    letterSpacing: "0.18em",
                   }}
                 >
-                  <span style={{ color: "var(--livro-gold)" }}>·</span> {f}
-                </li>
-              ))}
-            </ul>
-          </div>
-        </Reveal>
+                  {item.period}
+                </div>
+                <div
+                  className="livro-sans mt-2"
+                  style={{
+                    color: "var(--color-heading)",
+                    fontSize: "1rem",
+                    fontWeight: 500,
+                  }}
+                >
+                  {item.title}
+                </div>
+                <p
+                  className="livro-sans mt-1"
+                  style={{
+                    color: "var(--color-text)",
+                    fontSize: "0.9rem",
+                    lineHeight: 1.7,
+                  }}
+                >
+                  {item.body}
+                </p>
+              </li>
+            ))}
+          </ol>
+        </div>
+
+        <div className="mt-16">
+          <span className="label-eyebrow">Formação</span>
+          <ul className="mt-6 space-y-3">
+            {formacao.map((f) => (
+              <li
+                key={f}
+                className="livro-sans"
+                style={{
+                  color: "var(--color-text)",
+                  fontSize: "0.92rem",
+                  lineHeight: 1.6,
+                }}
+              >
+                <span style={{ color: "var(--livro-gold)" }}>·</span> {f}
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     </section>
   );

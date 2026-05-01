@@ -23,11 +23,11 @@ import {
 import { Document, Page, pdfjs } from "react-pdf";
 import "react-pdf/dist/Page/AnnotationLayer.css";
 import "react-pdf/dist/Page/TextLayer.css";
+import { SITE } from "@/lib/site";
 
 pdfjs.GlobalWorkerOptions.workerSrc = `https://cdn.jsdelivr.net/npm/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.mjs`;
 
-const PDF_URL =
-  "https://mibfpndkbyqzc4ik.public.blob.vercel-storage.com/Entre_Frestas_e_Horizontes_%40_Jaime_Cruz.pdf";
+const PDF_URL = SITE.book.pdfUrl;
 
 const documentOptions = {
   cMapUrl: `https://cdn.jsdelivr.net/npm/pdfjs-dist@${pdfjs.version}/cmaps/`,

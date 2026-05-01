@@ -129,7 +129,7 @@ export default function HubPage() {
         >
           <p>© {new Date().getFullYear()} — Jaime Cesar da Cruz</p>
           <p style={{ marginTop: "0.4rem" }}>
-            Site desenvolvido por{" "}
+            Desenvolvido por{" "}
             <a
               href="https://giovannicruz.dev/"
               target="_blank"

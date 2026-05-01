@@ -1,9 +1,6 @@
-"use client";
+import { SITE } from "@/lib/site";
 
-import Reveal from "./Reveal";
-
-const PDF_URL =
-  "https://mibfpndkbyqzc4ik.public.blob.vercel-storage.com/Entre_Frestas_e_Horizontes_%40_Jaime_Cruz.pdf";
+const PDF_URL = SITE.book.pdfUrl;
 
 export default function HeroSection() {
   return (
@@ -12,116 +9,100 @@ export default function HeroSection() {
       style={{ backgroundColor: "var(--color-bg)" }}
     >
       <div className="relative z-10 mx-auto flex w-full max-w-3xl flex-col items-center text-center">
-        <Reveal delay={0}>
-          <span className="label-eyebrow" style={{ letterSpacing: "0.25em" }}>
-            Jaime Cruz · 2026
-          </span>
-        </Reveal>
+        <span className="label-eyebrow" style={{ letterSpacing: "0.25em" }}>
+          Jaime Cruz · 2026
+        </span>
 
-        <Reveal delay={120}>
-          <h1
-            className="livro-serif mt-8"
-            style={{
-              fontSize: "clamp(3rem, 8vw, 6rem)",
-              lineHeight: 1.05,
-              color: "var(--color-heading)",
-              fontWeight: 500,
-            }}
-          >
-            Entre Frestas
-            <br />e Horizontes
-          </h1>
-        </Reveal>
+        <h1
+          className="livro-serif mt-8"
+          style={{
+            fontSize: "clamp(3rem, 8vw, 6rem)",
+            lineHeight: 1.05,
+            color: "var(--color-heading)",
+            fontWeight: 500,
+          }}
+        >
+          Entre Frestas
+          <br />e Horizontes
+        </h1>
 
-        <Reveal delay={240}>
-          <p
-            className="livro-sans mt-6"
-            style={{
-              color: "var(--color-text)",
-              fontSize: "1.05rem",
-              letterSpacing: "0.02em",
-            }}
-          >
-            Uma travessia de vida, fé e serviço público
-          </p>
-        </Reveal>
+        <p
+          className="livro-sans mt-6"
+          style={{
+            color: "var(--color-text)",
+            fontSize: "1.05rem",
+            letterSpacing: "0.02em",
+          }}
+        >
+          Uma travessia de vida, fé e serviço público
+        </p>
 
-        <Reveal delay={360}>
-          <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
-            <a
-              href="/livro/ler"
-              className="gold-button gold-button-inverse"
-              aria-label="Ler o livro online"
-            >
-              <span aria-hidden>→</span> Ler online
-            </a>
-            <a
-              href={PDF_URL}
-              download="Entre Frestas e Horizontes - Jaime Cruz.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="gold-button"
-              aria-label="Baixar o livro em PDF"
-            >
-              <span aria-hidden>↓</span> Baixar PDF
-            </a>
-          </div>
-        </Reveal>
-
-        <Reveal delay={500}>
-          <div className="gold-rule" />
-        </Reveal>
-
-        <Reveal delay={580}>
-          <p
-            className="livro-serif italic"
-            style={{
-              color: "var(--livro-gold-light)",
-              fontSize: "1.25rem",
-              maxWidth: "32rem",
-              lineHeight: 1.5,
-            }}
-          >
-            “mesmo quando a estrutura é frágil,
-            <br />a luz encontra caminho.”
-          </p>
-        </Reveal>
-
-        <Reveal delay={680}>
-          <p
-            className="livro-sans mt-10"
-            style={{
-              color: "var(--color-text)",
-              maxWidth: "30rem",
-              fontSize: "0.98rem",
-              lineHeight: 1.75,
-            }}
-          >
-            Um relato sem romantização. Sem atalhos. A história de quem nasceu
-            em um rancho de madeira no interior do Paraná e, passo a passo,
-            construiu uma vida pública de relevância — guiada por fé,
-            responsabilidade e serviço.
-          </p>
-        </Reveal>
-
-        <Reveal delay={820}>
+        <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
           <a
-            href="#sobre-o-livro"
-            className="livro-sans mt-10 inline-flex items-center gap-2"
-            style={{
-              color: "var(--color-text-muted)",
-              fontSize: "0.78rem",
-              letterSpacing: "0.12em",
-              textTransform: "uppercase",
-              textDecoration: "none",
-              borderBottom: "1px solid transparent",
-              transition: "color 0.2s ease, border-color 0.2s ease",
-            }}
-            aria-label="Saber mais sobre a obra"
+            href="/livro/ler"
+            className="gold-button gold-button-inverse"
+            aria-label="Ler o livro online"
           >
-            Saber mais sobre a obra <span aria-hidden>↓</span>
+            <span aria-hidden>→</span> Ler online
           </a>
-        </Reveal>
+          <a
+            href={PDF_URL}
+            download="Entre Frestas e Horizontes - Jaime Cruz.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="gold-button"
+            aria-label="Baixar o livro em PDF"
+          >
+            <span aria-hidden>↓</span> Baixar PDF
+          </a>
+        </div>
+
+        <div className="gold-rule" />
+
+        <p
+          className="livro-serif italic"
+          style={{
+            color: "var(--livro-gold-light)",
+            fontSize: "1.25rem",
+            maxWidth: "32rem",
+            lineHeight: 1.5,
+          }}
+        >
+          "mesmo quando a estrutura é frágil,
+          <br />a luz encontra caminho."
+        </p>
+
+        <p
+          className="livro-sans mt-10"
+          style={{
+            color: "var(--color-text)",
+            maxWidth: "30rem",
+            fontSize: "0.98rem",
+            lineHeight: 1.75,
+          }}
+        >
+          Um relato sem romantização. Sem atalhos. A história de quem nasceu
+          em um rancho de madeira no interior do Paraná e, passo a passo,
+          construiu uma vida pública de relevância — guiada por fé,
+          responsabilidade e serviço.
+        </p>
+
+        <a
+          href="#sobre-o-livro"
+          className="livro-sans mt-10 inline-flex items-center gap-2"
+          style={{
+            color: "var(--color-text-muted)",
+            fontSize: "0.78rem",
+            letterSpacing: "0.12em",
+            textTransform: "uppercase",
+            textDecoration: "none",
+            borderBottom: "1px solid transparent",
+            transition: "color 0.2s ease, border-color 0.2s ease",
+          }}
+          aria-label="Saber mais sobre a obra"
+        >
+          Saber mais sobre a obra <span aria-hidden>↓</span>
+        </a>
       </div>
 
       <div

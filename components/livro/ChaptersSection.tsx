@@ -1,7 +1,3 @@
-"use client";
-
-import Reveal from "./Reveal";
-
 const parts = [
   {
     number: "Parte I",
@@ -20,7 +16,7 @@ const parts = [
     label: "Consciência e Início Público",
     title: "Da dor à organização",
     description:
-      "A entrada no movimento de moradia, a eleição como presidente da associação e uma pergunta de um padre que mudou tudo: “Por que você não se candidata a vereador?”",
+      `A entrada no movimento de moradia, a eleição como presidente da associação e uma pergunta de um padre que mudou tudo: "Por que você não se candidata a vereador?"`,
     chapters: [
       "Cap. 4 — A Luta por Moradia, Organização Popular e Despertar Político",
       "Cap. 5 — Vereador aos 24 Anos: Quando a Vida Pessoal Entra na Política",
@@ -67,29 +63,24 @@ export default function ChaptersSection() {
     >
       <div className="mx-auto w-full max-w-[1100px]">
         <div className="mb-16 text-center">
-          <Reveal>
-            <span className="label-eyebrow">A obra</span>
-          </Reveal>
-          <Reveal delay={120}>
-            <h2
-              className="livro-serif mt-6"
-              style={{
-                color: "var(--color-heading)",
-                fontSize: "clamp(2rem, 4vw, 2.75rem)",
-                lineHeight: 1.2,
-                fontWeight: 500,
-              }}
-            >
-              Cinco partes. Uma travessia.
-            </h2>
-          </Reveal>
+          <span className="label-eyebrow">A obra</span>
+          <h2
+            className="livro-serif mt-6"
+            style={{
+              color: "var(--color-heading)",
+              fontSize: "clamp(2rem, 4vw, 2.75rem)",
+              lineHeight: 1.2,
+              fontWeight: 500,
+            }}
+          >
+            Cinco partes. Uma travessia.
+          </h2>
         </div>
 
         <div className="grid gap-6 md:grid-cols-2">
           {parts.map((part, idx) => (
-            <Reveal
+            <div
               key={part.number}
-              delay={idx * 100}
               className={
                 idx === parts.length - 1 && parts.length % 2 === 1
                   ? "md:col-span-2 md:max-w-[calc(50%-0.75rem)] md:mx-auto md:w-full"
@@ -160,7 +151,7 @@ export default function ChaptersSection() {
                   ))}
                 </ul>
               </article>
-            </Reveal>
+            </div>
           ))}
         </div>
       </div>
