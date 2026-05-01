@@ -16,16 +16,17 @@ const geist = Geist({
 });
 
 export const metadata: Metadata = {
-  title: "Jaime Cruz — Jaime Cesar da Cruz",
+  title: "Jaime Cruz — Ex-Prefeito de Vinhedo · Trajetória e Livro",
   description:
-    "Conheça o livro Entre Frestas e Horizontes e a vitória judicial de Jaime Cruz.",
+    "Site oficial de Jaime Cesar da Cruz, ex-prefeito de Vinhedo (2014–2020). Conheça a trajetória, o livro Entre Frestas e Horizontes e o caso da absolvição definitiva no processo do cartel da merenda escolar.",
+  alternates: { canonical: "/" },
   openGraph: {
-    title: "Jaime Cruz",
+    title: "Jaime Cruz — Ex-Prefeito de Vinhedo",
     description:
-      "Conheça o livro Entre Frestas e Horizontes e a vitória judicial de Jaime Cruz.",
+      "Trajetória, livro e absolvição definitiva. Site oficial de Jaime Cesar da Cruz.",
     type: "website",
     locale: "pt_BR",
-    url: "https://jaimecruz.vercel.app/",
+    url: "https://jaimecruz.com.br/",
   },
 };
 

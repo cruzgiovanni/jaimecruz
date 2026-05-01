@@ -15,15 +15,33 @@ const geist = Geist({
 });
 
 export const metadata: Metadata = {
-  title: "Entre Frestas e Horizontes — Jaime Cruz",
+  title: "Entre Frestas e Horizontes — Livro de Jaime Cruz",
   description:
-    "Uma travessia de vida, fé e serviço público. O livro de Jaime Cruz.",
+    "Entre Frestas e Horizontes: o livro autobiográfico de Jaime Cesar da Cruz, ex-prefeito de Vinhedo. Uma travessia de vida, fé e serviço público — do rancho de madeira no Paraná aos cargos públicos em Vinhedo, SP. Leia online ou baixe o PDF gratuitamente.",
+  keywords: [
+    "Entre Frestas e Horizontes",
+    "livro Jaime Cruz",
+    "autobiografia Jaime Cruz",
+    "Jaime Cruz Vinhedo",
+    "ex-prefeito Vinhedo livro",
+    "livro prefeito Vinhedo",
+    "Jaime Cesar da Cruz",
+    "memorial Jaime Cruz",
+  ],
+  alternates: { canonical: "/livro" },
   openGraph: {
-    title: "Entre Frestas e Horizontes — Jaime Cruz",
+    title: "Entre Frestas e Horizontes — Livro de Jaime Cruz",
     description:
-      "Uma travessia de vida, fé e serviço público. O livro de Jaime Cruz.",
+      "Autobiografia de Jaime Cesar da Cruz, ex-prefeito de Vinhedo. Leia online ou baixe o PDF.",
     type: "book",
     locale: "pt_BR",
+    url: "https://jaimecruz.com.br/livro",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Entre Frestas e Horizontes — Livro de Jaime Cruz",
+    description:
+      "Autobiografia de Jaime Cesar da Cruz, ex-prefeito de Vinhedo. Leia online ou baixe o PDF.",
   },
 };
 
