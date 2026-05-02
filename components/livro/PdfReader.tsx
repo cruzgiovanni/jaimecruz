@@ -294,6 +294,17 @@ export default function PdfReader() {
           </span>
         </div>
 
+        {mounted && (
+          <button
+            type="button"
+            onClick={toggleTheme}
+            className="reader-control reader-toolbar-theme"
+            aria-label={isDark ? "Modo claro" : "Modo escuro"}
+          >
+            {isDark ? <Sun aria-hidden size={16} /> : <Moon aria-hidden size={16} />}
+          </button>
+        )}
+
         <div className="reader-desktop-controls">
           <div
             className="reader-pager livro-sans"

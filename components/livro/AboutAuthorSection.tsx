@@ -1,13 +1,13 @@
 const timeline = [
   {
-    period: "1992",
+    period: "1991",
     title: "Presidente da Associação dos Sem Casa de Vinhedo",
-    body: "Liderou a construção do Residencial Jardim Nova Canudos — 242 terrenos em regime de mutirão.",
+    body: "Coordenação da construção do Residencial Jardim Nova Canudos — 242 terrenos.",
   },
   {
-    period: "1993 – 2000",
+    period: "1993 – 1997",
     title: "Vereador (1º e 2º mandatos)",
-    body: "Terceiro mais votado em 1992; segundo mais votado em 2004.",
+    body: "",
   },
   {
     period: "1997 – 2004",
@@ -16,8 +16,8 @@ const timeline = [
   },
   {
     period: "2005 – 2006",
-    title: "Presidente da Câmara Municipal de Vinhedo",
-    body: "Modernização administrativa e programa Câmara nos Bairros.",
+    title: "Vereador e Presidente da Câmara Municipal de Vinhedo",
+    body: "Modernização administrativa e programa Câmara no Bairro.",
   },
   {
     period: "2008 – 2016",
@@ -30,16 +30,16 @@ const timeline = [
     body: "Reeleito em 2016. Conduziu o município através de crise hídrica, greve dos caminhoneiros e pandemia de COVID-19. Reabertura da Santa Casa de Vinhedo.",
   },
   {
-    period: "Regional",
-    title: "Liderança intermunicipal",
-    body: "Presidente do Conselho de Prefeitos da RMC. Presidente da ARES-PCJ · COHAB Campinas · Consórcio Intermunicipal das Frutas.",
+    period: "Liderança Regional",
+    title: "Representação intermunicipal",
+    body: "Presidente do Conselho de Prefeitos da RMC · Presidente da ARES-PCJ · Presidente da COHAB Campinas · Presidente do Consórcio Intermunicipal das Frutas.",
   },
 ];
 
 const formacao = [
-  "Graduação em Filosofia — PUC-Campinas",
+  "Licenciatura em Filosofia — PUC-Campinas",
   "Especialização em Filosofia Social — PUC-Campinas",
-  "Formação em Violência Doméstica contra Crianças e Adolescentes — USP",
+  "Especialização em Violência Doméstica contra Crianças e Adolescentes — USP",
 ];
 
 export default function AboutAuthorSection() {
@@ -120,16 +120,18 @@ export default function AboutAuthorSection() {
                 >
                   {item.title}
                 </div>
-                <p
-                  className="livro-sans mt-1"
-                  style={{
-                    color: "var(--color-text)",
-                    fontSize: "0.9rem",
-                    lineHeight: 1.7,
-                  }}
-                >
-                  {item.body}
-                </p>
+                {item.body && (
+                  <p
+                    className="livro-sans mt-1"
+                    style={{
+                      color: "var(--color-text)",
+                      fontSize: "0.9rem",
+                      lineHeight: 1.7,
+                    }}
+                  >
+                    {item.body}
+                  </p>
+                )}
               </li>
             ))}
           </ol>
