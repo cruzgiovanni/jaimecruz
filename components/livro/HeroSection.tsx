@@ -37,24 +37,37 @@ export default function HeroSection() {
           Uma travessia de vida, fé e serviço público
         </p>
 
-        <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
-          <a
-            href="/livro/ler"
-            className="gold-button gold-button-inverse"
-            aria-label="Ler o livro online"
+        <div className="mt-10 flex flex-col items-center gap-3">
+          <div className="flex flex-wrap items-center justify-center gap-3">
+            <a
+              href="/livro/ler"
+              className="gold-button gold-button-inverse"
+              aria-label="Ler o livro online"
+            >
+              <span aria-hidden>→</span> Ler online
+            </a>
+            <a
+              href={PDF_URL}
+              download="Entre Frestas e Horizontes - Jaime Cruz.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="gold-button"
+              aria-label="Baixar o livro em PDF"
+            >
+              <span aria-hidden>↓</span> Baixar PDF
+            </a>
+          </div>
+          <p
+            className="livro-sans"
+            style={{
+              fontSize: "0.68rem",
+              letterSpacing: "0.14em",
+              textTransform: "uppercase",
+              color: "var(--color-text-muted)",
+            }}
           >
-            <span aria-hidden>→</span> Ler online
-          </a>
-          <a
-            href={PDF_URL}
-            download="Entre Frestas e Horizontes - Jaime Cruz.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="gold-button"
-            aria-label="Baixar o livro em PDF"
-          >
-            <span aria-hidden>↓</span> Baixar PDF
-          </a>
+            Leitura e download gratuitos · sem cadastro
+          </p>
         </div>
 
         <div className="gold-rule" />
