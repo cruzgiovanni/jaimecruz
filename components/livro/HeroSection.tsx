@@ -81,8 +81,8 @@ export default function HeroSection() {
             lineHeight: 1.5,
           }}
         >
-          "mesmo quando a estrutura é frágil,
-          <br />a luz encontra caminho."
+          &quot;mesmo quando a estrutura é frágil,
+          <br />a luz encontra caminho.&quot;
         </p>
 
         <p

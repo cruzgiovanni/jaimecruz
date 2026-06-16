@@ -29,9 +29,9 @@ export default function QuoteBreak({ variant }: QuoteBreakProps) {
               lineHeight: 1.4,
             }}
           >
-            "Origem não determina destino.
+            &quot;Origem não determina destino.
             <br />
-            Mas responsabilidade determina legado."
+            Mas responsabilidade determina legado.&quot;
           </blockquote>
 
           <span
@@ -89,7 +89,7 @@ export default function QuoteBreak({ variant }: QuoteBreakProps) {
             lineHeight: 1.5,
           }}
         >
-          "Se a vida lhe parecer estreita,
+          &quot;Se a vida lhe parecer estreita,
           <br />
           lembre-se: a luz não precisa
           <br />
@@ -108,7 +108,7 @@ export default function QuoteBreak({ variant }: QuoteBreakProps) {
             Basta uma fresta.
           </span>
           <br />
-          E coragem para seguir."
+          E coragem para seguir.&quot;
         </blockquote>
 
         <span

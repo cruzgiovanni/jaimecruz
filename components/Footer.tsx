@@ -19,7 +19,7 @@ export default function Footer() {
         </p>
 
         <p className="text-muted-foreground text-sm italic mb-3">
-          "Ave Mariæ, gratia plena, Dominus tecum"
+          &quot;Ave Mariæ, gratia plena, Dominus tecum&quot;
         </p>
 
         <p className="text-muted-foreground text-sm">

@@ -24,6 +24,7 @@ import { Document, Page, pdfjs } from "react-pdf";
 import "react-pdf/dist/Page/AnnotationLayer.css";
 import "react-pdf/dist/Page/TextLayer.css";
 import { SITE } from "@/lib/site";
+import { useIsClient } from "@/lib/use-is-client";
 
 pdfjs.GlobalWorkerOptions.workerSrc = `https://cdn.jsdelivr.net/npm/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.mjs`;
 
@@ -43,14 +44,15 @@ export default function PdfReader() {
   const [scale, setScale] = useState<number>(1);
   const [containerWidth, setContainerWidth] = useState<number>(0);
   const [chromeVisible, setChromeVisible] = useState(true);
-  const [pixelRatio, setPixelRatio] = useState(1);
   const containerRef = useRef<HTMLDivElement | null>(null);
   const touchStartRef = useRef<{ x: number; y: number; t: number } | null>(
     null
   );
   const idleTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const { resolvedTheme, setTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
+  const mounted = useIsClient();
+  const pixelRatio =
+    typeof window === "undefined" ? 1 : Math.min(2.5, window.devicePixelRatio || 1);
 
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -66,11 +68,6 @@ export default function PdfReader() {
       window.removeEventListener("resize", update);
       window.removeEventListener("orientationchange", update);
     };
-  }, []);
-
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-    setPixelRatio(Math.min(2.5, window.devicePixelRatio || 1));
   }, []);
 
   const pageWidth = useMemo(() => {
@@ -149,10 +146,6 @@ export default function PdfReader() {
     return () => window.removeEventListener("keydown", handler);
   }, [goNext, goPrev]);
 
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
   // Auto-hide chrome after idle
   const resetIdleTimer = useCallback(() => {
     if (idleTimerRef.current) clearTimeout(idleTimerRef.current);
@@ -163,11 +156,14 @@ export default function PdfReader() {
   }, []);
 
   useEffect(() => {
-    resetIdleTimer();
+    idleTimerRef.current = setTimeout(() => {
+      setChromeVisible(false);
+    }, IDLE_MS);
+
     return () => {
       if (idleTimerRef.current) clearTimeout(idleTimerRef.current);
     };
-  }, [resetIdleTimer]);
+  }, []);
 
   // Reset idle timer on chrome interaction
   useEffect(() => {

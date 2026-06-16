@@ -18,7 +18,7 @@ export default function TestimonialSection() {
             fontStyle: "italic",
           }}
         >
-          "Um homem que escolheu gostar de gente."
+          &quot;Um homem que escolheu gostar de gente.&quot;
         </h2>
 
         <div className="relative mt-12">
@@ -35,7 +35,7 @@ export default function TestimonialSection() {
               pointerEvents: "none",
             }}
           >
-            "
+            &quot;
           </span>
 
           <div className="quote-block">
