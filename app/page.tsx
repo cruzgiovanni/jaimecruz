@@ -48,6 +48,14 @@ const cards = [
     cta: "Ver as notícias",
     delay: 180,
   },
+  {
+    href: "/blog",
+    eyebrow: "Blog · Notícias",
+    title: "Publicações e Imprensa",
+    subtitle: "Posts autorais e links para portais de notícias.",
+    cta: "Acompanhar publicações",
+    delay: 280,
+  },
 ];
 
 export default function HubPage() {
@@ -124,7 +132,7 @@ export default function HubPage() {
             color: "var(--hub-text-muted)",
             fontSize: "0.72rem",
             lineHeight: 1.7,
-            animationDelay: "560ms",
+            animationDelay: "660ms",
           }}
         >
           <p>© {new Date().getFullYear()} — Jaime Cesar da Cruz</p>

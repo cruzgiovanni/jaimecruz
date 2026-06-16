@@ -10,6 +10,7 @@ import "./navbar.css";
 const routes = [
   { href: "/", label: "Início" },
   { href: "/livro", label: "Livro" },
+  { href: "/blog", label: "Blog" },
   { href: "/absolvicao", label: "Absolvição" },
 ];
 
