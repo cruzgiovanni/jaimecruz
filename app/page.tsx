@@ -40,13 +40,22 @@ const cards = [
     delay: 80,
   },
   {
+    href: "/artigos",
+    eyebrow: "Artigos · Opinião",
+    title: "Artigos",
+    subtitle:
+      "Reflexões sobre planejamento urbano, desenvolvimento regional e o futuro de Vinhedo.",
+    cta: "Ler os artigos",
+    delay: 180,
+  },
+  {
     href: "/absolvicao",
     eyebrow: "Justiça · 2026",
     title: "A Verdade Triunfa",
     subtitle:
       "A vitória judicial no caso do cartel da merenda escolar — reportagens e documentos.",
     cta: "Ver as notícias",
-    delay: 180,
+    delay: 280,
   },
   {
     href: "/blog",
@@ -54,7 +63,7 @@ const cards = [
     title: "Publicações e Imprensa",
     subtitle: "Posts autorais e links para portais de notícias.",
     cta: "Acompanhar publicações",
-    delay: 280,
+    delay: 380,
   },
 ];
 
@@ -132,7 +141,7 @@ export default function HubPage() {
             color: "var(--hub-text-muted)",
             fontSize: "0.72rem",
             lineHeight: 1.7,
-            animationDelay: "660ms",
+            animationDelay: "760ms",
           }}
         >
           <p>© {new Date().getFullYear()} — Jaime Cesar da Cruz</p>

@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { SITE } from "@/lib/site";
 import { manualBlogPosts } from "@/data/blogPosts";
+import { articles } from "@/data/articles";
 
 export const dynamic = "force-static";
 
@@ -26,6 +27,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.9,
     },
+    {
+      url: `${SITE.url}/artigos`,
+      lastModified: now,
+      changeFrequency: "weekly",
+      priority: 0.8,
+    },
+    ...articles.map((article) => ({
+      url: `${SITE.url}/artigos/${article.slug}`,
+      lastModified: new Date(article.publishedAt),
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
+    })),
     {
       url: `${SITE.url}/blog`,
       lastModified: now,
