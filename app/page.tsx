@@ -40,20 +40,21 @@ const cards = [
     delay: 80,
   },
   {
+    href: "/artigos",
+    eyebrow: "Artigos · Publicações",
+    title: "Artigos",
+    subtitle:
+      "Reflexões sobre Vinhedo, planejamento urbano, desenvolvimento regional e vida pública.",
+    cta: "Ler os artigos",
+    delay: 180,
+  },
+  {
     href: "/absolvicao",
     eyebrow: "Justiça · 2026",
     title: "A Verdade Triunfa",
     subtitle:
       "A vitória judicial no caso do cartel da merenda escolar — reportagens e documentos.",
     cta: "Ver as notícias",
-    delay: 180,
-  },
-  {
-    href: "/blog",
-    eyebrow: "Blog · Notícias",
-    title: "Publicações e Imprensa",
-    subtitle: "Posts autorais e links para portais de notícias.",
-    cta: "Acompanhar publicações",
     delay: 280,
   },
 ];

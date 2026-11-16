@@ -166,6 +166,10 @@
     padding: 0.5rem 0.5rem 0.5rem 0.75rem;
   }
 
+  .site-navbar-brand {
+    min-width: auto;
+  }
+
   .site-navbar-brand-name {
     display: none;
   }
@@ -184,5 +188,21 @@
   .site-navbar-theme {
     width: 1.8rem;
     height: 1.8rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .site-navbar-links {
+    gap: 0;
+  }
+
+  .site-navbar-link {
+    padding: 0.4rem 0.4rem;
+    letter-spacing: 0.02em;
+  }
+
+  .site-navbar-link::before {
+    left: 0.4rem;
+    right: 0.4rem;
   }
 }

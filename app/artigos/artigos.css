@@ -1,0 +1,508 @@
+/* ───────── Tokens ───────── */
+
+.artigos-root {
+  --a-bg: hsl(var(--background));
+  --a-surface: hsl(var(--card));
+  --a-border: hsl(var(--border));
+  --a-text: hsl(var(--foreground) / 0.86);
+  --a-muted: hsl(var(--muted-foreground));
+  --a-heading: hsl(var(--foreground));
+  --a-gold: hsl(var(--gold));
+  --a-gold-light: hsl(var(--gold-light));
+  --a-gold-dark: hsl(var(--gold-dark));
+  --a-gold-soft: hsl(var(--gold) / 0.1);
+  --a-gold-muted: hsl(var(--gold) / 0.22);
+
+  --a-serif: var(--font-playfair), Georgia, serif;
+  --a-sans: var(--font-geist), "Inter", system-ui, sans-serif;
+
+  min-height: 100vh;
+  background-color: var(--a-bg);
+  color: var(--a-text);
+  font-family: var(--a-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.dark .artigos-root {
+  --a-gold: hsl(43 72% 64%);
+  --a-gold-light: hsl(43 86% 76%);
+  --a-gold-dark: hsl(43 68% 58%);
+  --a-gold-soft: hsl(43 72% 64% / 0.1);
+  --a-gold-muted: hsl(43 72% 64% / 0.24);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not(.light) .artigos-root {
+    --a-gold: hsl(43 72% 64%);
+    --a-gold-light: hsl(43 86% 76%);
+    --a-gold-dark: hsl(43 68% 58%);
+    --a-gold-soft: hsl(43 72% 64% / 0.1);
+    --a-gold-muted: hsl(43 72% 64% / 0.24);
+  }
+}
+
+.artigos-root *::selection {
+  background: var(--a-gold-muted);
+  color: var(--a-heading);
+}
+
+/* ───────── Shared ───────── */
+
+.artigos-root .a-eyebrow {
+  font-family: var(--a-sans);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: var(--a-gold);
+}
+
+.artigos-root .a-rule {
+  width: 60px;
+  height: 1px;
+  border: 0;
+  background: var(--a-gold);
+}
+
+.artigos-root .a-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--a-muted);
+  text-decoration: none;
+  transition:
+    color 0.25s ease,
+    gap 0.25s ease;
+}
+
+.artigos-root .a-back:hover {
+  color: var(--a-gold);
+  gap: 0.7rem;
+}
+
+.artigos-root a:focus-visible {
+  outline: 2px solid var(--a-gold);
+  outline-offset: 4px;
+}
+
+.artigos-root .a-fade {
+  opacity: 0;
+  transform: translateY(16px);
+  animation: artigosFade 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes artigosFade {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .artigos-root .a-fade {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+}
+
+/* ───────── Listing ───────── */
+
+.artigos-root .a-page-title {
+  font-family: var(--a-serif);
+  color: var(--a-heading);
+  font-size: clamp(2.75rem, 8vw, 4.25rem);
+  line-height: 1.02;
+  font-weight: 500;
+}
+
+.artigos-root .a-intro {
+  max-width: 34rem;
+  font-size: 1.0625rem;
+  line-height: 1.75;
+  color: var(--a-text);
+}
+
+/* ───────── Card ───────── */
+
+.artigos-root .a-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 1.75rem;
+  background: var(--a-surface);
+  border: 1px solid var(--a-border);
+  border-radius: 6px;
+  text-decoration: none;
+  transition:
+    border-color 0.35s ease,
+    transform 0.35s ease;
+}
+
+.artigos-root .a-card:hover {
+  border-color: var(--a-gold-dark);
+  transform: translateY(-2px);
+}
+
+.artigos-root .a-card-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem 0.6rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--a-muted);
+}
+
+.artigos-root .a-card-meta .a-dot {
+  width: 3px;
+  height: 3px;
+  border-radius: 9999px;
+  background: var(--a-gold);
+}
+
+.artigos-root .a-card-meta .a-card-category {
+  color: var(--a-gold);
+}
+
+.artigos-root .a-card-title {
+  margin-top: 1rem;
+  font-family: var(--a-serif);
+  color: var(--a-heading);
+  font-size: clamp(1.4rem, 3.4vw, 1.75rem);
+  line-height: 1.22;
+  font-weight: 500;
+  text-wrap: balance;
+  transition: color 0.3s ease;
+}
+
+.artigos-root .a-card:hover .a-card-title {
+  color: var(--a-gold);
+}
+
+.artigos-root .a-card-subtitle {
+  margin-top: 0.6rem;
+  font-family: var(--a-serif);
+  font-style: italic;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--a-muted);
+}
+
+.artigos-root .a-card-description {
+  margin-top: 1rem;
+  flex: 1;
+  font-size: 0.95rem;
+  line-height: 1.75;
+  color: var(--a-text);
+}
+
+.artigos-root .a-card-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 1.5rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--a-gold);
+  transition: gap 0.3s ease;
+}
+
+.artigos-root .a-card:hover .a-card-cta {
+  gap: 0.75rem;
+}
+
+.artigos-root .a-card--compact {
+  padding: 1.5rem;
+}
+
+.artigos-root .a-card--compact .a-card-title {
+  font-size: 1.3rem;
+}
+
+/* ───────── Article header ───────── */
+
+.artigos-root .a-title {
+  font-family: var(--a-serif);
+  color: var(--a-heading);
+  font-size: clamp(2rem, 5.6vw, 3.25rem);
+  line-height: 1.1;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+}
+
+.artigos-root .a-subtitle {
+  font-family: var(--a-serif);
+  font-style: italic;
+  color: var(--a-muted);
+  font-size: clamp(1.1rem, 2.6vw, 1.35rem);
+  line-height: 1.5;
+  text-wrap: balance;
+}
+
+.artigos-root .a-byline {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+.artigos-root .a-avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.6rem;
+  height: 2.6rem;
+  flex-shrink: 0;
+  border: 1px solid var(--a-gold);
+  color: var(--a-gold);
+  font-family: var(--a-serif);
+  font-style: italic;
+  font-size: 1.15rem;
+  line-height: 1;
+}
+
+.artigos-root .a-byline-name {
+  color: var(--a-heading);
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.artigos-root .a-byline-meta {
+  margin-top: 0.15rem;
+  color: var(--a-muted);
+  font-size: 0.8rem;
+  letter-spacing: 0.02em;
+}
+
+/* ───────── Article body ───────── */
+
+.artigos-root .a-body {
+  font-size: 1.0625rem;
+  line-height: 1.85;
+  color: var(--a-text);
+}
+
+@media (min-width: 640px) {
+  .artigos-root .a-body {
+    font-size: 1.125rem;
+  }
+}
+
+.artigos-root .a-body > * + * {
+  margin-top: 1.5em;
+}
+
+.artigos-root .a-body > p:first-child::first-letter {
+  float: left;
+  margin: 0.08em 0.12em 0 0;
+  font-family: var(--a-serif);
+  font-size: 3.6em;
+  line-height: 0.82;
+  font-weight: 500;
+  color: var(--a-gold);
+}
+
+.artigos-root .a-body em {
+  font-style: italic;
+  color: var(--a-heading);
+}
+
+.artigos-root .a-body strong {
+  font-weight: 600;
+  color: var(--a-heading);
+}
+
+.artigos-root .a-body a {
+  color: var(--a-gold);
+  text-decoration: underline;
+  text-decoration-color: var(--a-gold-muted);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+  transition:
+    color 0.2s ease,
+    text-decoration-color 0.2s ease;
+}
+
+.artigos-root .a-body a:hover {
+  color: var(--a-gold-light);
+  text-decoration-color: currentColor;
+}
+
+/* Lists */
+
+.artigos-root .a-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 1em;
+}
+
+.artigos-root .a-list li {
+  position: relative;
+  padding-left: 1.5rem;
+  line-height: 1.6;
+  break-inside: avoid;
+}
+
+.artigos-root .a-list li + li {
+  margin-top: 0.55rem;
+}
+
+.artigos-root .a-list li::before {
+  content: "";
+  position: absolute;
+  left: 0.3rem;
+  top: 0.62em;
+  width: 5px;
+  height: 5px;
+  border-radius: 9999px;
+  background: var(--a-gold);
+}
+
+@media (min-width: 640px) {
+  .artigos-root .a-list--columns {
+    columns: 2;
+    column-gap: 2.5rem;
+  }
+
+  .artigos-root .a-list--columns li + li {
+    margin-top: 0;
+  }
+
+  .artigos-root .a-list--columns li {
+    padding-bottom: 0.55rem;
+  }
+}
+
+/* Highlight */
+
+.artigos-root .a-highlight {
+  margin-top: 2em;
+  margin-bottom: 0.5em;
+  padding: 1.25rem 1.25rem 1.25rem 1.4rem;
+  background: var(--a-surface);
+  border-left: 3px solid var(--a-gold);
+  font-family: var(--a-serif);
+  font-style: italic;
+  font-size: clamp(1.25rem, 3vw, 1.6rem);
+  line-height: 1.45;
+  color: var(--a-heading);
+  text-wrap: balance;
+}
+
+@media (min-width: 640px) {
+  .artigos-root .a-highlight {
+    padding: 1.75rem 1.75rem 1.75rem 2rem;
+  }
+}
+
+/* Figure */
+
+.artigos-root .a-figure {
+  margin-top: 2.5em;
+  margin-bottom: 1em;
+  padding: 1rem;
+  background: var(--a-surface);
+  border: 1px solid var(--a-border);
+  border-radius: 6px;
+}
+
+@media (min-width: 640px) {
+  .artigos-root .a-figure {
+    padding: 1.25rem;
+  }
+}
+
+.artigos-root .a-figure-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 3px;
+}
+
+.artigos-root .a-legend {
+  display: grid;
+  gap: 0.85rem 1.5rem;
+  margin-top: 1.1rem;
+  padding: 0;
+  list-style: none;
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: var(--a-text);
+}
+
+@media (min-width: 640px) {
+  .artigos-root .a-legend {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.artigos-root .a-legend li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+/* A cor de preenchimento vem do próprio mapa (precisa corresponder às áreas
+   pintadas na imagem); o restante segue o visual do site. */
+.artigos-root .a-swatch {
+  flex-shrink: 0;
+  width: 0.75rem;
+  height: 0.75rem;
+  margin-top: 0.3rem;
+  border-radius: 2px;
+  box-shadow: 0 0 0 1px var(--a-border);
+}
+
+.artigos-root .a-legend-detail {
+  display: block;
+  color: var(--a-muted);
+}
+
+.artigos-root .a-figcaption {
+  margin-top: 1rem;
+  padding-top: 0.9rem;
+  border-top: 1px solid var(--a-border);
+  font-size: 0.8rem;
+  font-style: italic;
+  line-height: 1.6;
+  color: var(--a-muted);
+}
+
+/* Signature */
+
+.artigos-root .a-signature-name {
+  font-family: var(--a-serif);
+  font-style: italic;
+  font-size: 1.5rem;
+  color: var(--a-heading);
+}
+
+.artigos-root .a-signature-credential {
+  font-size: 0.85rem;
+  line-height: 1.65;
+  color: var(--a-muted);
+}
+
+/* ───────── Footer ───────── */
+
+.artigos-root .a-footer {
+  border-top: 1px solid var(--a-border);
+  font-size: 0.78rem;
+  line-height: 1.8;
+  color: var(--a-muted);
+}
+
+.artigos-root .a-footer a {
+  color: var(--a-gold);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
