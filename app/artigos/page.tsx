@@ -7,7 +7,7 @@ import { JsonLd } from "@/components/JsonLd";
 import { SITE } from "@/lib/site";
 
 const DESCRIPTION =
-  "Artigos de Jaime Cruz, ex-prefeito de Vinhedo, sobre planejamento urbano, desenvolvimento regional, o Distrito Turístico Serra Azul e o futuro de Vinhedo.";
+  "Artigos e publicações de Jaime Cruz, ex-prefeito de Vinhedo, sobre Vinhedo, planejamento urbano, desenvolvimento regional e vida pública.";
 
 export const metadata: Metadata = {
   title: "Artigos",
@@ -78,7 +78,7 @@ export default function ArtigosPage() {
             className="a-eyebrow a-fade block"
             style={{ animationDelay: "60ms" }}
           >
-            Jaime Cruz · Opinião
+            Jaime Cruz · Publicações
           </span>
           <h1
             className="a-page-title a-fade mt-5"
@@ -90,8 +90,8 @@ export default function ArtigosPage() {
             className="a-intro a-fade mt-6"
             style={{ animationDelay: "180ms" }}
           >
-            Reflexões sobre planejamento urbano, desenvolvimento regional e o
-            futuro de Vinhedo.
+            Reflexões sobre Vinhedo, planejamento urbano, desenvolvimento
+            regional e vida pública.
           </p>
           <hr
             className="a-rule a-fade mt-10"

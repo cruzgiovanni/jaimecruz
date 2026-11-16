@@ -451,12 +451,15 @@
   gap: 0.75rem;
 }
 
+/* A cor de preenchimento vem do próprio mapa (precisa corresponder às áreas
+   pintadas na imagem); o restante segue o visual do site. */
 .artigos-root .a-swatch {
   flex-shrink: 0;
-  width: 0.85rem;
-  height: 1.05rem;
-  margin-top: 0.15rem;
-  border: 1px solid hsl(0 0% 8%);
+  width: 0.75rem;
+  height: 0.75rem;
+  margin-top: 0.3rem;
+  border-radius: 2px;
+  box-shadow: 0 0 0 1px var(--a-border);
 }
 
 .artigos-root .a-legend-detail {
