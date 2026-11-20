@@ -28,4 +28,23 @@ export const SITE = {
     pdfUrl:
       "https://mibfpndkbyqzc4ik.public.blob.vercel-storage.com/Entre_Frestas_e_Horizontes__Jaime_Cruz_compressed.pdf",
   },
+  launchBook: {
+    path: "/ninguem-errou",
+    title: "Ninguém Errou",
+    subtitle: "mas a criança não foi protegida",
+    description:
+      "Governança da proteção integral da criança e do adolescente: fundamentos, políticas públicas e redes municipais de proteção.",
+    isbn: "978-65-02-28813-9",
+    pages: 290,
+    edition: "1ª edição, 2026",
+    datePublished: "2026",
+    inLanguage: "pt-BR",
+    price: 47,
+    priceLabel: "R$ 47",
+    checkoutUrl: "https://pay.hotmart.com/F108522764A",
+    cover: "/ninguem-errou/capa-ninguem-errou.jpg",
+    coverWidth: 760,
+    coverHeight: 1105,
+    ogImage: "/ninguem-errou/og-ninguem-errou.jpg",
+  },
 } as const;

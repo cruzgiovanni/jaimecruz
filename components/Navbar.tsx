@@ -10,6 +10,7 @@ import "./navbar.css";
 const routes = [
   { href: "/", label: "Início" },
   { href: "/livro", label: "Livro" },
+  { href: "/ninguem-errou", label: "Lançamento" },
   { href: "/artigos", label: "Artigos" },
   { href: "/absolvicao", label: "Absolvição" },
 ];
@@ -43,6 +44,8 @@ export function Navbar() {
               key={route.href}
               href={route.href}
               className={`site-navbar-link ${
+                route.href === "/" ? "site-navbar-link--home" : ""
+              } ${
                 pathname === route.href ||
                 (route.href !== "/" && pathname.startsWith(route.href))
                   ? "is-active"
