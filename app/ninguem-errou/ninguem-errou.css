@@ -1,0 +1,859 @@
+/* Landing page de venda — "Ninguém Errou".
+   Usa a identidade do site (Playfair + Geist, dourado sobre fundo neutro,
+   temas claro e escuro). Só a capa do livro mantém as cores da edição. */
+
+/* ───────── Tokens ───────── */
+
+.ne-root {
+  --ne-bg: hsl(var(--background));
+  --ne-surface: hsl(var(--card));
+  --ne-border: hsl(var(--border));
+  --ne-text: hsl(var(--foreground) / 0.86);
+  --ne-muted: hsl(var(--muted-foreground));
+  --ne-heading: hsl(var(--foreground));
+
+  /* light */
+  --ne-gold: hsl(43 58% 46%);
+  --ne-gold-hover: hsl(43 64% 56%);
+  --ne-gold-text: hsl(43 60% 31%);
+  --ne-accent: hsl(43 60% 31%);
+  --ne-gold-dark: hsl(var(--gold-dark));
+  --ne-gold-soft: hsl(43 58% 46% / 0.1);
+  --ne-gold-muted: hsl(43 58% 46% / 0.24);
+  --ne-on-gold: hsl(45 34% 8%);
+  --ne-book-shadow: rgba(40, 30, 10, 0.32);
+
+  --ne-serif: var(--font-playfair), Georgia, serif;
+  --ne-sans: var(--font-geist), "Inter", system-ui, sans-serif;
+
+  --ne-band: var(--ne-bg);
+
+  background-color: var(--ne-bg);
+  color: var(--ne-text);
+  font-family: var(--ne-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.dark .ne-root {
+  --ne-gold: hsl(43 72% 64%);
+  --ne-gold-hover: hsl(43 86% 76%);
+  --ne-gold-text: hsl(43 72% 64%);
+  --ne-accent: hsl(43 86% 76%);
+  --ne-gold-dark: hsl(43 68% 58%);
+  --ne-gold-soft: hsl(43 72% 64% / 0.1);
+  --ne-gold-muted: hsl(43 72% 64% / 0.24);
+  --ne-book-shadow: rgba(0, 0, 0, 0.7);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not(.light) .ne-root {
+    --ne-gold: hsl(43 72% 64%);
+    --ne-gold-hover: hsl(43 86% 76%);
+    --ne-gold-text: hsl(43 72% 64%);
+    --ne-accent: hsl(43 86% 76%);
+    --ne-gold-dark: hsl(43 68% 58%);
+    --ne-gold-soft: hsl(43 72% 64% / 0.1);
+    --ne-gold-muted: hsl(43 72% 64% / 0.24);
+    --ne-book-shadow: rgba(0, 0, 0, 0.7);
+  }
+}
+
+.ne-root *::selection {
+  background: var(--ne-gold-muted);
+  color: var(--ne-heading);
+}
+
+.ne-root a:focus-visible {
+  outline: 2px solid var(--ne-gold);
+  outline-offset: 4px;
+}
+
+/* ───────── Layout ───────── */
+
+.ne-root .ne-band {
+  padding-block: 4.5rem;
+  background: var(--ne-band);
+}
+
+.ne-root .ne-band--alt {
+  --ne-band: var(--ne-surface);
+  border-block: 1px solid var(--ne-border);
+}
+
+@media (min-width: 768px) {
+  .ne-root .ne-band {
+    padding-block: 6.5rem;
+  }
+}
+
+.ne-root .ne-container {
+  width: 100%;
+  max-width: 1100px;
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .ne-root .ne-container {
+    padding-inline: 2rem;
+  }
+}
+
+.ne-root .ne-narrow {
+  max-width: 680px;
+}
+
+/* ───────── Type ───────── */
+
+.ne-root .ne-eyebrow {
+  font-family: var(--ne-sans);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ne-gold-text);
+}
+
+.ne-root .ne-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0.75rem;
+  border: 1px solid var(--ne-gold-muted);
+  border-radius: 4px;
+  background: var(--ne-gold-soft);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ne-gold-text);
+}
+
+.ne-root .ne-badge-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 9999px;
+  background: var(--ne-gold);
+  box-shadow: 0 0 0 3px var(--ne-gold-soft);
+}
+
+.ne-root .ne-h1 {
+  font-family: var(--ne-serif);
+  font-size: clamp(3.25rem, 9vw, 6rem);
+  font-weight: 500;
+  line-height: 0.98;
+  letter-spacing: -0.015em;
+  color: var(--ne-heading);
+}
+
+.ne-root .ne-sub {
+  font-family: var(--ne-serif);
+  font-style: italic;
+  font-size: clamp(1.4rem, 3.4vw, 2rem);
+  line-height: 1.25;
+  color: var(--ne-accent);
+}
+
+.ne-root .ne-h2 {
+  font-family: var(--ne-serif);
+  font-size: clamp(1.85rem, 4vw, 2.6rem);
+  font-weight: 500;
+  line-height: 1.15;
+  color: var(--ne-heading);
+  text-wrap: balance;
+}
+
+.ne-root .ne-h3 {
+  font-family: var(--ne-serif);
+  font-size: 1.3rem;
+  font-weight: 500;
+  line-height: 1.3;
+  color: var(--ne-heading);
+}
+
+.ne-root .ne-lead {
+  font-size: 1.0625rem;
+  line-height: 1.85;
+  color: var(--ne-text);
+}
+
+.ne-root .ne-muted {
+  color: var(--ne-muted);
+}
+
+.ne-root .ne-rule {
+  width: 60px;
+  height: 1px;
+  border: 0;
+  background: var(--ne-gold);
+}
+
+.ne-root .ne-divider {
+  height: 1px;
+  border: 0;
+  background: var(--ne-border);
+}
+
+/* ───────── Buy ───────── */
+
+.ne-root .ne-buy {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.25rem 1.75rem;
+}
+
+.ne-root .ne-price {
+  font-family: var(--ne-serif);
+  font-size: 2.75rem;
+  font-weight: 500;
+  line-height: 1;
+  color: var(--ne-heading);
+}
+
+.ne-root .ne-price small {
+  display: block;
+  margin-top: 0.5rem;
+  font-family: var(--ne-sans);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ne-muted);
+}
+
+.ne-root .ne-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  min-height: 3.25rem;
+  padding: 1rem 2rem;
+  background: var(--ne-gold);
+  color: var(--ne-on-gold);
+  border: 1.5px solid var(--ne-gold);
+  border-radius: 0;
+  font-family: var(--ne-sans);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  line-height: 1;
+  text-decoration: none;
+  box-shadow: 0 14px 32px hsl(var(--gold) / 0.18);
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.ne-root .ne-button:hover {
+  background: var(--ne-gold-hover);
+  border-color: var(--ne-gold-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 18px 38px hsl(var(--gold) / 0.26);
+}
+
+.ne-root .ne-button--large {
+  min-height: 3.6rem;
+  padding: 1.15rem 2.6rem;
+  font-size: 0.88rem;
+}
+
+.ne-root .ne-seals {
+  font-size: 0.82rem;
+  line-height: 1.85;
+  color: var(--ne-muted);
+}
+
+/* ───────── Book mockup ───────── */
+
+.ne-root .ne-stage {
+  position: relative;
+  perspective: 2200px;
+}
+
+.ne-root .ne-stage--glow::before {
+  content: "";
+  position: absolute;
+  inset: -12% -18%;
+  background: radial-gradient(
+    closest-side,
+    var(--ne-gold-soft),
+    transparent 75%
+  );
+  pointer-events: none;
+}
+
+.ne-root .ne-book {
+  position: relative;
+  transform-style: preserve-3d;
+  transform: rotateY(-16deg) rotateX(2deg);
+  filter: drop-shadow(26px 36px 44px var(--ne-book-shadow));
+}
+
+.ne-root .ne-book img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 1px 4px 4px 1px;
+}
+
+.ne-root .ne-book-spine {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 30px;
+  transform: rotateY(-90deg);
+  transform-origin: left center;
+  background: linear-gradient(90deg, #010a13, #071b2f 55%, #0c2a47);
+}
+
+.ne-root .ne-book-pages {
+  position: absolute;
+  inset: 3px -1px 3px auto;
+  width: 7px;
+  border-radius: 0 3px 3px 0;
+  background: repeating-linear-gradient(
+    180deg,
+    #e6edf4 0 2px,
+    #bfcfde 2px 4px
+  );
+}
+
+.ne-root .ne-book::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 1px 4px 4px 1px;
+  background: linear-gradient(
+    100deg,
+    rgba(255, 255, 255, 0.14) 0%,
+    rgba(255, 255, 255, 0) 22%,
+    rgba(0, 0, 0, 0.18) 100%
+  );
+  pointer-events: none;
+}
+
+.ne-root .ne-book--small {
+  transform: rotateY(-14deg) rotateX(2deg);
+  filter: drop-shadow(16px 22px 28px var(--ne-book-shadow));
+}
+
+.ne-root .ne-book--small .ne-book-spine {
+  width: 16px;
+}
+
+.ne-root .ne-book--small .ne-book-pages {
+  inset: 2px -1px 2px auto;
+  width: 4px;
+}
+
+/* ───────── Hero ───────── */
+
+/* O brilho atrás da capa é mais largo que ela: não pode gerar rolagem lateral. */
+.ne-root .ne-band--hero {
+  padding-top: 3.5rem;
+  overflow: hidden;
+  overflow: clip;
+}
+
+.ne-root .ne-hero {
+  display: grid;
+  gap: 3.5rem;
+  align-items: center;
+}
+
+.ne-root .ne-hero-art {
+  width: 100%;
+  max-width: 300px;
+  margin-inline: auto;
+}
+
+@media (min-width: 900px) {
+  .ne-root .ne-hero {
+    grid-template-columns: 1.08fr 0.92fr;
+    gap: 4rem;
+  }
+
+  .ne-root .ne-hero-art {
+    max-width: 400px;
+  }
+}
+
+/* ───────── A conta ───────── */
+
+.ne-root .ne-math {
+  display: grid;
+  gap: 3rem;
+  align-items: center;
+}
+
+@media (min-width: 900px) {
+  .ne-root .ne-math {
+    grid-template-columns: 1fr 1fr;
+    gap: 4.5rem;
+  }
+}
+
+.ne-root .ne-steps {
+  display: flex;
+  align-items: flex-end;
+  gap: 0.35rem;
+}
+
+.ne-root .ne-step {
+  flex: 1;
+  min-width: 0;
+  text-align: center;
+}
+
+.ne-root .ne-step-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 4.25rem;
+  background: var(--ne-bg);
+  border: 1px solid var(--ne-border);
+  border-radius: 4px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--ne-text);
+}
+
+.ne-root .ne-step-label {
+  margin-top: 0.6rem;
+  font-size: 0.62rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ne-muted);
+}
+
+.ne-root .ne-step-arrow {
+  flex: 0 0 auto;
+  padding-bottom: 1.9rem;
+  font-size: 1rem;
+  color: var(--ne-gold);
+}
+
+@media (max-width: 420px) {
+  .ne-root .ne-step-box {
+    height: 3.6rem;
+    font-size: 0.82rem;
+  }
+
+  .ne-root .ne-step-label {
+    font-size: 0.56rem;
+    letter-spacing: 0.06em;
+  }
+}
+
+.ne-root .ne-result {
+  font-family: var(--ne-serif);
+  font-size: clamp(4.25rem, 11vw, 6.5rem);
+  font-weight: 500;
+  line-height: 0.88;
+  letter-spacing: -0.02em;
+  color: var(--ne-accent);
+}
+
+.ne-root .ne-quote {
+  padding-left: 1.4rem;
+  border-left: 3px solid var(--ne-gold);
+  font-family: var(--ne-serif);
+  font-style: italic;
+  font-size: clamp(1.25rem, 2.6vw, 1.45rem);
+  line-height: 1.45;
+  color: var(--ne-heading);
+}
+
+/* ───────── O que tem dentro ───────── */
+
+.ne-root .ne-parts {
+  display: grid;
+  gap: 1.25rem;
+}
+
+@media (min-width: 900px) {
+  .ne-root .ne-parts {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.ne-root .ne-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  min-width: 0;
+  padding: 1.75rem;
+  background: var(--ne-bg);
+  border: 1px solid var(--ne-border);
+  border-radius: 6px;
+  transition:
+    border-color 0.35s ease,
+    transform 0.35s ease;
+}
+
+.ne-root .ne-card:hover {
+  border-color: var(--ne-gold-dark);
+  transform: translateY(-2px);
+}
+
+.ne-root .ne-card-rule {
+  width: 32px;
+  height: 1px;
+  margin-block: 0.5rem 0.4rem;
+  border: 0;
+  background: var(--ne-gold-dark);
+}
+
+.ne-root .ne-dots {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ne-root .ne-dots li {
+  position: relative;
+  padding-left: 1.25rem;
+  line-height: 1.6;
+}
+
+.ne-root .ne-dots li + li {
+  margin-top: 0.45rem;
+}
+
+.ne-root .ne-dots li::before {
+  content: "";
+  position: absolute;
+  left: 0.15rem;
+  top: 0.62em;
+  width: 5px;
+  height: 5px;
+  border-radius: 9999px;
+  background: var(--ne-gold);
+}
+
+.ne-root .ne-card .ne-dots {
+  font-size: 0.93rem;
+  color: var(--ne-muted);
+}
+
+.ne-root .ne-features {
+  display: grid;
+  gap: 2rem 3rem;
+}
+
+@media (min-width: 768px) {
+  .ne-root .ne-features {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.ne-root .ne-feature p {
+  margin-top: 0.5rem;
+  font-size: 0.98rem;
+  line-height: 1.7;
+  color: var(--ne-muted);
+}
+
+/* ───────── Para quem ───────── */
+
+.ne-root .ne-audience {
+  font-size: 1.02rem;
+  color: var(--ne-text);
+}
+
+@media (min-width: 768px) {
+  .ne-root .ne-audience {
+    columns: 2;
+    column-gap: 3rem;
+  }
+
+  .ne-root .ne-audience li {
+    break-inside: avoid;
+    padding-bottom: 0.45rem;
+  }
+
+  .ne-root .ne-audience li + li {
+    margin-top: 0;
+  }
+}
+
+/* ───────── Autor ───────── */
+
+.ne-root .ne-author {
+  display: grid;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+@media (min-width: 560px) {
+  .ne-root .ne-author {
+    grid-template-columns: auto 1fr;
+    gap: 2.25rem;
+  }
+}
+
+.ne-root .ne-initials {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 4.5rem;
+  height: 4.5rem;
+  border: 1px solid var(--ne-gold);
+  font-family: var(--ne-serif);
+  font-style: italic;
+  font-size: 1.6rem;
+  line-height: 1;
+  color: var(--ne-gold-text);
+}
+
+.ne-root .ne-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ne-gold-text);
+  text-decoration: none;
+  transition: gap 0.25s ease;
+}
+
+.ne-root .ne-link:hover {
+  gap: 0.75rem;
+}
+
+.ne-root .ne-link em {
+  font-family: var(--ne-serif);
+  font-size: 0.95rem;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+/* ───────── Ficha técnica ───────── */
+
+.ne-root .ne-specs {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1px;
+  margin: 0;
+  overflow: hidden;
+  background: var(--ne-border);
+  border: 1px solid var(--ne-border);
+  border-radius: 6px;
+}
+
+@media (min-width: 768px) {
+  .ne-root .ne-specs {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.ne-root .ne-spec {
+  min-width: 0;
+  padding: 1.15rem 1.25rem;
+  background: var(--ne-surface);
+}
+
+.ne-root .ne-spec dt {
+  font-size: 0.64rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ne-muted);
+}
+
+.ne-root .ne-spec dd {
+  margin: 0.4rem 0 0;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--ne-heading);
+  overflow-wrap: anywhere;
+}
+
+/* ───────── Fecho ───────── */
+
+.ne-root .ne-closing {
+  display: grid;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.ne-root .ne-closing-art {
+  width: 100%;
+  max-width: 190px;
+}
+
+@media (min-width: 768px) {
+  .ne-root .ne-closing {
+    grid-template-columns: 200px 1fr;
+    gap: 3.5rem;
+  }
+
+  .ne-root .ne-closing-art {
+    max-width: none;
+  }
+}
+
+/* ───────── Cena do bairro ───────── */
+
+.ne-root .ne-scene {
+  --ne-scene-bg: var(--ne-surface);
+  --ne-house-back: color-mix(in srgb, hsl(var(--foreground)) 5%, var(--ne-scene-bg));
+  --ne-house-front: color-mix(in srgb, hsl(var(--foreground)) 11%, var(--ne-scene-bg));
+  --ne-house-dim: color-mix(in srgb, hsl(var(--foreground)) 8%, var(--ne-scene-bg));
+  --ne-house-trim: color-mix(in srgb, hsl(var(--foreground)) 16%, var(--ne-scene-bg));
+  --ne-house-icon: color-mix(in srgb, hsl(var(--foreground)) 30%, var(--ne-scene-bg));
+  --ne-ground: color-mix(in srgb, hsl(var(--foreground)) 14%, var(--ne-scene-bg));
+  --ne-path: color-mix(in srgb, hsl(var(--foreground)) 36%, var(--ne-scene-bg));
+
+  display: block;
+  width: 100%;
+  height: auto;
+  background: var(--ne-scene-bg);
+  border-top: 1px solid var(--ne-border);
+}
+
+.ne-root .ne-scene .back {
+  fill: var(--ne-house-back);
+}
+
+.ne-root .ne-scene .front {
+  fill: var(--ne-house-front);
+}
+
+.ne-root .ne-scene .dim {
+  fill: var(--ne-house-dim);
+}
+
+.ne-root .ne-scene .trim {
+  fill: var(--ne-house-trim);
+}
+
+.ne-root .ne-scene .icon {
+  fill: var(--ne-house-icon);
+}
+
+.ne-root .ne-scene .light {
+  fill: var(--ne-gold);
+}
+
+.ne-root .ne-scene .mullion {
+  stroke: var(--ne-house-dim);
+}
+
+.ne-root .ne-scene .ground {
+  stroke: var(--ne-ground);
+}
+
+.ne-root .ne-scene .path {
+  stroke: var(--ne-path);
+}
+
+.ne-root .ne-scene .stop {
+  fill: var(--ne-path);
+}
+
+.ne-root .ne-scene .gap {
+  stroke: var(--ne-gold);
+}
+
+/* ───────── Footer ───────── */
+
+.ne-root .ne-footer {
+  border-top: 1px solid var(--ne-border);
+  background: var(--ne-surface);
+  font-size: 0.78rem;
+  line-height: 1.8;
+  color: var(--ne-muted);
+}
+
+.ne-root .ne-footer a {
+  color: var(--ne-gold-text);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* ───────── Barra de compra (mobile) ───────── */
+
+.ne-root .ne-buybar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 40;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.75rem 1rem calc(0.75rem + env(safe-area-inset-bottom, 0px));
+  background: hsl(var(--background) / 0.9);
+  backdrop-filter: saturate(160%) blur(12px);
+  -webkit-backdrop-filter: saturate(160%) blur(12px);
+  border-top: 1px solid var(--ne-border);
+  transform: translateY(110%);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.ne-root .ne-buybar.is-visible {
+  transform: translateY(0);
+}
+
+.ne-root .ne-buybar-title {
+  font-family: var(--ne-serif);
+  font-size: 1rem;
+  line-height: 1.2;
+  color: var(--ne-heading);
+}
+
+.ne-root .ne-buybar-meta {
+  font-size: 0.72rem;
+  color: var(--ne-muted);
+}
+
+.ne-root .ne-buybar .ne-button {
+  min-height: 2.75rem;
+  padding: 0.75rem 1.25rem;
+  font-size: 0.74rem;
+  box-shadow: none;
+}
+
+@media (min-width: 768px) {
+  .ne-root .ne-buybar {
+    display: none;
+  }
+}
+
+/* ───────── Motion ───────── */
+
+.ne-root .ne-fade {
+  opacity: 0;
+  transform: translateY(16px);
+  animation: neFade 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes neFade {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ne-root .ne-fade {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+
+  .ne-root .ne-buybar,
+  .ne-root .ne-card,
+  .ne-root .ne-button {
+    transition: none;
+  }
+}

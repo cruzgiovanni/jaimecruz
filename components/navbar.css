@@ -191,18 +191,38 @@
   }
 }
 
-@media (max-width: 360px) {
+/* No celular, o "J" da marca já leva ao início. */
+@media (max-width: 540px) {
+  .site-navbar-link--home {
+    display: none;
+  }
+}
+
+@media (max-width: 430px) {
   .site-navbar-links {
     gap: 0;
   }
 
   .site-navbar-link {
-    padding: 0.4rem 0.4rem;
+    padding: 0.4rem 0.42rem;
     letter-spacing: 0.02em;
   }
 
   .site-navbar-link::before {
-    left: 0.4rem;
-    right: 0.4rem;
+    left: 0.42rem;
+    right: 0.42rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .site-navbar-link {
+    padding: 0.4rem 0.3rem;
+    font-size: 0.66rem;
+    letter-spacing: 0;
+  }
+
+  .site-navbar-link::before {
+    left: 0.3rem;
+    right: 0.3rem;
   }
 }

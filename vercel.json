@@ -1,6 +1,7 @@
 {
   "redirects": [
     { "source": "/blog", "destination": "/artigos", "permanent": true },
-    { "source": "/blog/:path*", "destination": "/artigos", "permanent": true }
+    { "source": "/blog/:path*", "destination": "/artigos", "permanent": true },
+    { "source": "/lancamento", "destination": "/ninguem-errou", "permanent": false }
   ]
 }

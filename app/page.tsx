@@ -32,12 +32,21 @@ export const metadata: Metadata = {
 
 const cards = [
   {
+    href: "/ninguem-errou",
+    eyebrow: "Lançamento · 2026",
+    title: "Ninguém Errou",
+    subtitle:
+      "mas a criança não foi protegida. Governança da proteção integral da criança e do adolescente.",
+    cta: "Conhecer e comprar",
+    delay: 80,
+  },
+  {
     href: "/livro",
     eyebrow: "O Livro · 2026",
     title: "Entre Frestas e Horizontes",
     subtitle: "Uma travessia de vida, fé e serviço público.",
     cta: "Conhecer a obra",
-    delay: 80,
+    delay: 180,
   },
   {
     href: "/artigos",
@@ -46,7 +55,7 @@ const cards = [
     subtitle:
       "Reflexões sobre Vinhedo, planejamento urbano, desenvolvimento regional e vida pública.",
     cta: "Ler os artigos",
-    delay: 180,
+    delay: 280,
   },
   {
     href: "/absolvicao",
@@ -55,7 +64,7 @@ const cards = [
     subtitle:
       "A vitória judicial no caso do cartel da merenda escolar — reportagens e documentos.",
     cta: "Ver as notícias",
-    delay: 280,
+    delay: 380,
   },
 ];
 
@@ -133,7 +142,7 @@ export default function HubPage() {
             color: "var(--hub-text-muted)",
             fontSize: "0.72rem",
             lineHeight: 1.7,
-            animationDelay: "660ms",
+            animationDelay: "760ms",
           }}
         >
           <p>© {new Date().getFullYear()} — Jaime Cesar da Cruz</p>
